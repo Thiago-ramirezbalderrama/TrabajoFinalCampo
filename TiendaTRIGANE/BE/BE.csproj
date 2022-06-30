@@ -54,6 +54,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Proveedor.cs" />
     <Compile Include="Rol.cs" />
+    <Compile Include="Traductor\Idioma.cs" />
+    <Compile Include="Traductor\Palabra.cs" />
+    <Compile Include="Traductor\Traduccion.cs" />
     <Compile Include="Venta.cs" />
   </ItemGroup>
   <ItemGroup>

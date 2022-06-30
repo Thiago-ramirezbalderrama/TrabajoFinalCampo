@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace TiendaTRIGANE
 {
-    public partial class FrmCambiarClave : FormAbstracto
+    public partial class FrmCambiarClave : FormAbstracto, Abstracciones.IObserverIdioma
     {
         private readonly Abstracciones.BL.IEmpleado _empleadoBL;
 
@@ -23,7 +23,19 @@ namespace TiendaTRIGANE
         private void FrmCambiarClave_Load(object sender, EventArgs e)
         {
             progressBar1.Visible = false;
+            Program.LenguajeAdmin.AgregarObservador(this);
+            ActualizarIdioma();
         }
+
+        public void ActualizarIdioma()
+        {
+            TranslateByTag(label1);
+            TranslateByTag(ctrlTexto1);
+            TranslateByTag(ctrlTexto2);
+            TranslateByTag(ctrlTexto3);
+            TranslateByTag(button1);
+        }
+
 
         private async void button1_Click(object sender, EventArgs e)
         {
@@ -40,11 +52,11 @@ namespace TiendaTRIGANE
                     ctrlTexto1.Texto = "";
                     ctrlTexto2.Texto = "";
                     ctrlTexto3.Texto = "";
-                    MessageBox.Show(/*Program.LanguageManager.Traducir*/("password_has_been_changed"), "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(Program.LenguajeAdmin.Traducir("password_has_been_changed"), "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    ShowError(/*Program.LanguageManager.Traducir*/("passwords_dont_match"));
+                    ShowError(Program.LenguajeAdmin.Traducir("passwords_dont_match"));
                 }
             }
             catch (Exception ex)
@@ -52,6 +64,11 @@ namespace TiendaTRIGANE
                 progressBar1.Visible = false;
                 ShowError(ex);
             }
+        }
+
+        private void FrmCambiarClave_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Program.LenguajeAdmin.QuitarObservador(this);
         }
     }
 }

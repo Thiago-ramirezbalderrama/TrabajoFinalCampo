@@ -7,3 +7,12 @@ D:\3er año\Trabajo de Campo\Proyecto\TiendaTRIGANE\BE\obj\Debug\BE.csproj.CoreC
 D:\3er año\Trabajo de Campo\Proyecto\TiendaTRIGANE\BE\obj\Debug\BE.csproj.CopyComplete
 D:\3er año\Trabajo de Campo\Proyecto\TiendaTRIGANE\BE\obj\Debug\BE.dll
 D:\3er año\Trabajo de Campo\Proyecto\TiendaTRIGANE\BE\obj\Debug\BE.pdb
+D:\3er año\Trabajo de Campo\proyectoCampoGit\TiendaTRIGANE\BE\bin\Debug\BE.dll
+D:\3er año\Trabajo de Campo\proyectoCampoGit\TiendaTRIGANE\BE\bin\Debug\BE.pdb
+D:\3er año\Trabajo de Campo\proyectoCampoGit\TiendaTRIGANE\BE\bin\Debug\Abstracciones.dll
+D:\3er año\Trabajo de Campo\proyectoCampoGit\TiendaTRIGANE\BE\bin\Debug\Abstracciones.pdb
+D:\3er año\Trabajo de Campo\proyectoCampoGit\TiendaTRIGANE\BE\obj\Debug\BE.csproj.AssemblyReference.cache
+D:\3er año\Trabajo de Campo\proyectoCampoGit\TiendaTRIGANE\BE\obj\Debug\BE.csproj.CoreCompileInputs.cache
+D:\3er año\Trabajo de Campo\proyectoCampoGit\TiendaTRIGANE\BE\obj\Debug\BE.csproj.CopyComplete
+D:\3er año\Trabajo de Campo\proyectoCampoGit\TiendaTRIGANE\BE\obj\Debug\BE.dll
+D:\3er año\Trabajo de Campo\proyectoCampoGit\TiendaTRIGANE\BE\obj\Debug\BE.pdb

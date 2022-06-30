@@ -49,6 +49,9 @@
     <Compile Include="Permiso.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RolDAL.cs" />
+    <Compile Include="Traductor\Idioma.cs" />
+    <Compile Include="Traductor\Palabra.cs" />
+    <Compile Include="Traductor\Traduccion.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Abstracciones\Abstracciones.csproj">

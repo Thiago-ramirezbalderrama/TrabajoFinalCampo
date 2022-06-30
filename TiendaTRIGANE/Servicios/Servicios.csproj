@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="EncriptadoAdmin.cs" />
     <Compile Include="Excepciones\CannotDeleteSysAdminRoleException.cs" />
+    <Compile Include="Excepciones\CannotDisableOnlyEnabledLanguageException.cs" />
     <Compile Include="Excepciones\ConnectionToDataBaseException.cs" />
     <Compile Include="Excepciones\CurrentPasswordNotCorrectException.cs" />
     <Compile Include="Excepciones\CustomTranslatableException.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="Excepciones\ItemAlreadyExistsException.cs" />
     <Compile Include="Excepciones\NotAllowedException.cs" />
     <Compile Include="Excepciones\OnlySysAdminsCanManageSysAdmins.cs" />
+    <Compile Include="LenguajeAdmin.cs" />
     <Compile Include="PermisosAdmin.cs" />
     <Compile Include="SesionAdmin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

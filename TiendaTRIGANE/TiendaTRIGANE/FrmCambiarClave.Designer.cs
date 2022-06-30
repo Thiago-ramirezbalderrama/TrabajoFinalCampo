@@ -44,6 +44,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(223, 25);
             this.label1.TabIndex = 0;
+            this.label1.Tag = "change_password";
             this.label1.Text = "Cambiar contraseña";
             // 
             // ctrlTexto1
@@ -55,6 +56,7 @@
             this.ctrlTexto1.Name = "ctrlTexto1";
             this.ctrlTexto1.Size = new System.Drawing.Size(215, 57);
             this.ctrlTexto1.TabIndex = 1;
+            this.ctrlTexto1.Tag = "input_currentpassword";
             this.ctrlTexto1.Texto = "";
             // 
             // ctrlTexto2
@@ -66,6 +68,7 @@
             this.ctrlTexto2.Name = "ctrlTexto2";
             this.ctrlTexto2.Size = new System.Drawing.Size(215, 57);
             this.ctrlTexto2.TabIndex = 2;
+            this.ctrlTexto2.Tag = "input_newpassword";
             this.ctrlTexto2.Texto = "";
             // 
             // ctrlTexto3
@@ -77,6 +80,7 @@
             this.ctrlTexto3.Name = "ctrlTexto3";
             this.ctrlTexto3.Size = new System.Drawing.Size(215, 57);
             this.ctrlTexto3.TabIndex = 3;
+            this.ctrlTexto3.Tag = "input_repeatpassword";
             this.ctrlTexto3.Texto = "";
             // 
             // button1
@@ -85,6 +89,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(215, 40);
             this.button1.TabIndex = 4;
+            this.button1.Tag = "change_password";
             this.button1.Text = "Cambiar contraseña";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -109,6 +114,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FrmCambiarClave";
             this.Text = "FrmCambiarClave";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmCambiarClave_FormClosing);
             this.Load += new System.EventHandler(this.FrmCambiarClave_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

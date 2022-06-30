@@ -43,6 +43,7 @@
             this.ctrlNum1.Name = "ctrlNum1";
             this.ctrlNum1.Size = new System.Drawing.Size(215, 57);
             this.ctrlNum1.TabIndex = 0;
+            this.ctrlNum1.Tag = "dni";
             this.ctrlNum1.Texto = "";
             // 
             // ctrlTexto1
@@ -54,6 +55,7 @@
             this.ctrlTexto1.Name = "ctrlTexto1";
             this.ctrlTexto1.Size = new System.Drawing.Size(215, 57);
             this.ctrlTexto1.TabIndex = 1;
+            this.ctrlTexto1.Tag = "password";
             this.ctrlTexto1.Texto = "";
             // 
             // progressBar1
@@ -69,6 +71,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(133, 23);
             this.button1.TabIndex = 3;
+            this.button1.Tag = "login";
             this.button1.Text = "Iniciar sesion";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);

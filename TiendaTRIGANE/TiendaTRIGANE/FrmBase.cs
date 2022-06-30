@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace TiendaTRIGANE
 {
-    public partial class FrmBase : Form
+    public partial class FrmBase : FormAbstracto, Abstracciones.IObserverIdioma
     {
         public FrmBase()
         {
@@ -22,8 +22,29 @@ namespace TiendaTRIGANE
 
         private void FrmBase_Load(object sender, EventArgs e)
         {
+            Program.LenguajeAdmin.AgregarObservador(this);
+            ShowUIBasedOnPermissions();
+            ActualizarIdioma();
             Program.VolverAlInicioSesion = false;
         }
+
+
+        public void ShowUIBasedOnPermissions()
+        {
+            ShowControlBasedOnPermissions(btnEmpleados, "employeesREAD");
+            //ShowControlBasedOnPermissions(seccion_RegVentas, "salesRecordREAD");
+            ShowControlBasedOnPermissions(btnReabastecimiento, "replenishmentREAD");
+            ShowControlBasedOnPermissions(btnProveedores, "suppliersREAD");
+            ShowControlBasedOnPermissions(btnProductos, "productsREAD");
+            //ShowControlBasedOnPermissions(seccion_RealizarVenta, "makeSale");
+            //ShowControlBasedOnPermissions(btnReponerMostradores, "productsREPLENISH");
+            //ShowControlBasedOnPermissions(seccion_Categorias, "categoriesREAD");
+            ShowControlBasedOnPermissions(btnPermisos, "permissions");
+            ShowControlBasedOnPermissions(btnRoles, "roleREAD");
+            ShowControlBasedOnPermissions(btnIdiomas, "languagesREAD");
+            ShowControlBasedOnPermissions(btnTraducciones, "translationsREAD");
+        }
+
 
         public void openChildForm(Form child)
         {
@@ -43,6 +64,14 @@ namespace TiendaTRIGANE
         [DllImport("user32.dll", EntryPoint ="SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
+
+        private void panel2_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+
         public void CerrarSesion()
         {
             Program.VolverAlInicioSesion = true;
@@ -50,20 +79,7 @@ namespace TiendaTRIGANE
             Close();
         }
 
-        private void btnEmpleados_Click(object sender, EventArgs e)
-        {
-            openChildForm(new FrmEmpleados());
-        }
-
-        private void btnCerrarSesion_Click(object sender, EventArgs e)
-        {
-            CerrarSesion();
-        }
-
-        private void btnCambiarContraseña_Click(object sender, EventArgs e)
-        {
-            openChildForm(new FrmCambiarClave());
-        }
+        
 
         private void btnCerrarApp_Click(object sender, EventArgs e)
         {
@@ -89,10 +105,65 @@ namespace TiendaTRIGANE
             btnMaximizar.Visible = true;
         }
 
-        private void panel2_MouseDown(object sender, MouseEventArgs e)
+        
+
+        private void btnRoles_Click(object sender, EventArgs e)
         {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
+            openChildForm(new FrmRoles());
+        }
+        
+        
+        private void btnEmpleados_Click(object sender, EventArgs e)
+        {
+            openChildForm(new FrmEmpleados());
+        }
+
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            CerrarSesion();
+        }
+
+        private void btnCambiarContraseña_Click(object sender, EventArgs e)
+        {
+            openChildForm(new FrmCambiarClave());
+        }
+
+        public void ActualizarIdioma()
+        {
+            TranslateByTag(this);
+            TranslateByTag(btnCambiarContraseña);
+            TranslateByTag(btnCerrarSesion);
+            TranslateByTag(btnEmpleados);
+            TranslateByTag(btnRegistroVentas);
+            TranslateByTag(btnProveedores);
+            TranslateByTag(btnProductos);
+            TranslateByTag(btnVenta);
+            TranslateByTag(btnReponerMostradores);
+            TranslateByTag(btnCambiarIdioma);
+            TranslateByTag(btnReabastecimiento);
+            TranslateByTag(btnPermisos);
+            TranslateByTag(btnTraducciones);
+            TranslateByTag(btnIdiomas);
+        }
+
+        private void btnTraducciones_Click(object sender, EventArgs e)
+        {
+            openChildForm(new FrmTraducciones());
+        }
+
+        private void btnIdiomas_Click(object sender, EventArgs e)
+        {
+            openChildForm(new FrmIdiomas());
+        }
+
+        private void btnPermisos_Click(object sender, EventArgs e)
+        {
+            openChildForm(new FrmPermisos(this));
+        }
+
+        private void btnCambiarIdioma_Click(object sender, EventArgs e)
+        {
+            new FrmCambiarIdioma().ShowDialog();
         }
     }
 }

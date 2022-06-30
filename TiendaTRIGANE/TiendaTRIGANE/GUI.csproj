@@ -98,11 +98,23 @@
     <Compile Include="FrmCambiarClave.Designer.cs">
       <DependentUpon>FrmCambiarClave.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCambiarIdioma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCambiarIdioma.Designer.cs">
+      <DependentUpon>FrmCambiarIdioma.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmEmpleados.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmEmpleados.Designer.cs">
       <DependentUpon>FrmEmpleados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmIdiomas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmIdiomas.Designer.cs">
+      <DependentUpon>FrmIdiomas.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmInicioSesion.cs">
       <SubType>Form</SubType>
@@ -110,11 +122,29 @@
     <Compile Include="FrmInicioSesion.Designer.cs">
       <DependentUpon>FrmInicioSesion.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmPermisos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPermisos.Designer.cs">
+      <DependentUpon>FrmPermisos.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmPrimerEmpleado.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmPrimerEmpleado.Designer.cs">
       <DependentUpon>FrmPrimerEmpleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRoles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRoles.Designer.cs">
+      <DependentUpon>FrmRoles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTraducciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTraducciones.Designer.cs">
+      <DependentUpon>FrmTraducciones.cs</DependentUpon>
     </Compile>
     <Compile Include="InvalidInputException.cs" />
     <Compile Include="IValidable.cs" />
@@ -135,14 +165,29 @@
     <EmbeddedResource Include="FrmCambiarClave.resx">
       <DependentUpon>FrmCambiarClave.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmCambiarIdioma.resx">
+      <DependentUpon>FrmCambiarIdioma.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmEmpleados.resx">
       <DependentUpon>FrmEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmIdiomas.resx">
+      <DependentUpon>FrmIdiomas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmInicioSesion.resx">
       <DependentUpon>FrmInicioSesion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmPermisos.resx">
+      <DependentUpon>FrmPermisos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmPrimerEmpleado.resx">
       <DependentUpon>FrmPrimerEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRoles.resx">
+      <DependentUpon>FrmRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTraducciones.resx">
+      <DependentUpon>FrmTraducciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

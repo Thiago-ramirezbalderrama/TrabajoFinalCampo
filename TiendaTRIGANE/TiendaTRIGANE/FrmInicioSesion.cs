@@ -45,12 +45,12 @@ namespace TiendaTRIGANE
             Program.VolverAlInicioSesion = false;
         }
 
-        /*public void ActualizarIdioma()
+        public void ActualizarIdioma()
         {
             TranslateByTag(ctrlNum1);
             TranslateByTag(ctrlTexto1);
             TranslateByTag(button1);
             TranslateByTag(this);
-        }*/
+        }
     }
 }

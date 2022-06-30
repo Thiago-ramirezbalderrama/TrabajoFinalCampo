@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
+using TiendaTRIGANE.Controles_personalizados;
 
 namespace TiendaTRIGANE
 {
@@ -66,42 +67,42 @@ namespace TiendaTRIGANE
         {
             MessageBox.Show(("select_one_from_the_list"), "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
-        /*
+        
         internal static void EnterProductCategoriesFirst()
         {
-            MessageBox.Show(Program.LanguageManager.Traducir("enter_product_categories_first"), "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            MessageBox.Show(Program.LenguajeAdmin.Traducir("enter_product_categories_first"), "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         internal static void ThereAreNoProductsInShelves()
         {
-            MessageBox.Show(Program.LanguageManager.Traducir("there_are_no_products_in_shelves"), "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            MessageBox.Show(Program.LenguajeAdmin.Traducir("there_are_no_products_in_shelves"), "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         internal static void ThereAreNoProductsInWarehouses()
         {
-            MessageBox.Show(Program.LanguageManager.Traducir("there_are_no_products_in_warehouses"), "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            MessageBox.Show(Program.LenguajeAdmin.Traducir("there_are_no_products_in_warehouses"), "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         internal static void ThereAreNoSuppliers()
         {
-            MessageBox.Show(Program.LanguageManager.Traducir("enter_a_supplier_first"), "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            MessageBox.Show(Program.LenguajeAdmin.Traducir("enter_a_supplier_first"), "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         internal static void ThereAreNoProductsFromThisCategory()
         {
-            MessageBox.Show(Program.LanguageManager.Traducir("there_are_no_products_from_this_category"), "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            MessageBox.Show(Program.LenguajeAdmin.Traducir("there_are_no_products_from_this_category"), "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         internal static void ThereAreNoProducts()
         {
-            MessageBox.Show(Program.LanguageManager.Traducir("there_are_no_products"), "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            MessageBox.Show(Program.LenguajeAdmin.Traducir("there_are_no_products"), "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         internal static void TranslateByTag(Control control, string strAppend = "")
         {
             if (control.Tag != null)
             {
-                var Texto = Program.LanguageManager.Traducir(control.Tag.ToString()) + strAppend;
+                var Texto = Program.LenguajeAdmin.Traducir(control.Tag.ToString()) + strAppend;
                 if (control is ctrlAbstracto ctrl)
                 {
                     ctrl.Etiqueta = Texto;
@@ -111,7 +112,7 @@ namespace TiendaTRIGANE
                     control.Text = Texto;
                 }
             }
-        }*/
+        }
 
         internal static void ShowControlBasedOnPermissions(Control control, string NombrePermiso)
         {
@@ -126,16 +127,16 @@ namespace TiendaTRIGANE
             }
         }
 
-        /*internal static void TranslateDataGridViewColumns(DataGridView dv)
+        internal static void TranslateDataGridViewColumns(DataGridView dv)
         {
             foreach (DataGridViewColumn col in dv.Columns)
             {
                 if (col.Tag != null)
                 {
-                    col.Name = col.HeaderText = Program.LanguageManager.Traducir(col.Tag.ToString());
+                    col.Name = col.HeaderText = Program.LenguajeAdmin.Traducir(col.Tag.ToString());
                 }
             }
-        }*/
+        }
 
         internal static void DisableControls(Form form)
         {

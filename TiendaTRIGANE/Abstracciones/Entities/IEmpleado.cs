@@ -5,5 +5,6 @@
         IRol Rol { get; set; }
         byte[] Password { get; set; }
         byte[] Password_Salt { get; set; }
+        Traductor.IIdioma Idioma { get; set; }
     }
 }

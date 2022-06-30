@@ -4,3 +4,9 @@ D:\3er año\Trabajo de Campo\Proyecto\TiendaTRIGANE\Abstracciones\obj\Debug\Abst
 D:\3er año\Trabajo de Campo\Proyecto\TiendaTRIGANE\Abstracciones\obj\Debug\Abstracciones.csproj.CoreCompileInputs.cache
 D:\3er año\Trabajo de Campo\Proyecto\TiendaTRIGANE\Abstracciones\obj\Debug\Abstracciones.dll
 D:\3er año\Trabajo de Campo\Proyecto\TiendaTRIGANE\Abstracciones\obj\Debug\Abstracciones.pdb
+D:\3er año\Trabajo de Campo\proyectoCampoGit\TiendaTRIGANE\Abstracciones\bin\Debug\Abstracciones.dll
+D:\3er año\Trabajo de Campo\proyectoCampoGit\TiendaTRIGANE\Abstracciones\bin\Debug\Abstracciones.pdb
+D:\3er año\Trabajo de Campo\proyectoCampoGit\TiendaTRIGANE\Abstracciones\obj\Debug\Abstracciones.csproj.AssemblyReference.cache
+D:\3er año\Trabajo de Campo\proyectoCampoGit\TiendaTRIGANE\Abstracciones\obj\Debug\Abstracciones.csproj.CoreCompileInputs.cache
+D:\3er año\Trabajo de Campo\proyectoCampoGit\TiendaTRIGANE\Abstracciones\obj\Debug\Abstracciones.dll
+D:\3er año\Trabajo de Campo\proyectoCampoGit\TiendaTRIGANE\Abstracciones\obj\Debug\Abstracciones.pdb

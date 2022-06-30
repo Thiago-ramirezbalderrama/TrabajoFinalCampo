@@ -11,7 +11,7 @@ using Abstracciones.Entities;
 
 namespace TiendaTRIGANE
 {
-    public partial class FrmEmpleados : FormAbstracto
+    public partial class FrmEmpleados : FormAbstracto, Abstracciones.IObserverIdioma
     {
 
         private readonly Abstracciones.BL.IRol _rolBL;
@@ -78,12 +78,9 @@ namespace TiendaTRIGANE
                 });
                 dataGridView1.Columns.Add(new DataGridViewTextBoxColumn
                 {
-                    Tag = "phone_number"
-                });
-                dataGridView1.Columns.Add(new DataGridViewTextBoxColumn
-                {
                     Tag = "birth_date"
                 });
+                TranslateDataGridViewColumns(dataGridView1);
                 dataGridView1.ClearSelection();
                 dataGridView1.SelectionChanged += dataGridView1_SelectionChanged;
 
@@ -108,7 +105,9 @@ namespace TiendaTRIGANE
 
         private async void FrmEmpleados_Load(object sender, EventArgs e)
         {
+            Program.LenguajeAdmin.AgregarObservador(this);
             await UpdateUIAsync();
+            ActualizarIdioma();
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
@@ -131,6 +130,28 @@ namespace TiendaTRIGANE
             }
         }
 
+
+
+        public void ActualizarIdioma()
+        {
+            TranslateByTag(label2);
+            TranslateByTag(label5);
+            TranslateByTag(label1);
+            TranslateByTag(label5);
+            TranslateByTag(ctrlNum1);
+            TranslateByTag(ctrlTexto1);
+            TranslateByTag(ctrlTexto2);
+            TranslateByTag(ctrlTexto3);
+            TranslateByTag(ctrlTexto4);
+            TranslateByTag(ctrlTexto5);
+            TranslateByTag(btnAgregar);
+            TranslateByTag(btnModificar);
+            TranslateByTag(btnEliminar);
+            TranslateDataGridViewColumns(dataGridView1);
+        }
+
+
+
         private async void btnAgregar_Click(object sender, EventArgs e)
         {
             try
@@ -146,7 +167,7 @@ namespace TiendaTRIGANE
                 var PasswordsMatch = ctrlTexto3.Texto == ctrlTexto4.Texto;
                 if (!PasswordsMatch)
                 {
-                    MessageBox.Show(("passwords_dont_match"), "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(Program.LenguajeAdmin.Traducir("passwords_dont_match"), "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
                 var empleado = new BE.Empleado((IRol)comboBox1.SelectedItem)
@@ -262,6 +283,11 @@ namespace TiendaTRIGANE
             {
                 e.Value = empleado.FechaNacimiento.ToShortDateString();
             }
+        }
+
+        private void FrmEmpleados_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Program.LenguajeAdmin.QuitarObservador(this);
         }
     }
 }

@@ -74,6 +74,7 @@ namespace DAL
                 new SqlParameter("@FechaNacimiento", empleado.FechaNacimiento),
                 new SqlParameter("@Email", empleado.Email),
                 new SqlParameter("@idRol", empleado.Rol.ID),
+                new SqlParameter("@idIdioma", empleado.Idioma?.ID)
             };
 
                 await _db.WriteStoredProcedure("EMPLEADO_UPDATE", parameters);
@@ -110,7 +111,7 @@ namespace DAL
                         FechaNacimiento = DateTime.Parse(registro["FechaNacimiento"].ToString()),
                         Email = registro["Email"].ToString() 
                     };
-                    /*if (!registro.IsNull("idIdioma"))
+                    if (!registro.IsNull("idIdioma"))
                     {
                         empleado.Idioma = new BE.Idioma
                         {
@@ -119,7 +120,7 @@ namespace DAL
                             MostrarPorDefecto = bool.Parse(registro["Idioma_Default"].ToString()),
                             Habilitado = bool.Parse(registro["Idioma_Habilitado"].ToString())
                         };
-                    }*/
+                    }
                     empleados.Add(empleado);
                 }
 
@@ -160,16 +161,16 @@ namespace DAL
                     Password = (byte[])registro["password"],
                     Password_Salt = (byte[])registro["salt"]
                 };
-                /*if (!registro.IsNull("idIdioma"))
+                if (!registro.IsNull("idIdioma"))
                 {
-                    empleado.Idioma = new Entities.Idioma
+                    empleado.Idioma = new BE.Idioma
                     {
                         ID = int.Parse(registro["idIdioma"].ToString()),
                         Nombre = registro["Idioma_Nombre"].ToString(),
                         MostrarPorDefecto = bool.Parse(registro["Idioma_Default"].ToString()),
                         Habilitado = bool.Parse(registro["Idioma_Habilitado"].ToString())
                     };
-                }*/
+                }
 
                 return empleado;
             }
