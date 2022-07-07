@@ -52,6 +52,8 @@
     <Compile Include="Excepciones\ItemAlreadyExistsException.cs" />
     <Compile Include="Excepciones\NotAllowedException.cs" />
     <Compile Include="Excepciones\OnlySysAdminsCanManageSysAdmins.cs" />
+    <Compile Include="Excepciones\UnauthorizedInsertionOrDeletionException.cs" />
+    <Compile Include="Excepciones\UnauthorizedUpdateException.cs" />
     <Compile Include="LenguajeAdmin.cs" />
     <Compile Include="PermisosAdmin.cs" />
     <Compile Include="SesionAdmin.cs" />

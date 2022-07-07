@@ -12,8 +12,8 @@ namespace Abstracciones.Entities
         double PrecioUnitario { get; set; }
 
         ICategoria Categoria { get; set; }
-        int CantidadAlmacenes { get; set; }
-        int CantidadGondolas { get; set; }
+        int CantidadDepositos { get; set; }
+        int CantidadExhibidores { get; set; }
         int AdvertenciaBajoStock { get; set; }
     }
 }

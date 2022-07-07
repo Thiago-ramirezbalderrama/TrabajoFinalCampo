@@ -41,19 +41,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BL\ICategoria.cs" />
     <Compile Include="BL\IEmpleado.cs" />
     <Compile Include="BL\IPermiso.cs" />
+    <Compile Include="BL\IProducto.cs" />
     <Compile Include="BL\IRol.cs" />
     <Compile Include="BL\Traductor\IIdioma.cs" />
     <Compile Include="BL\Traductor\IPalabra.cs" />
     <Compile Include="BL\Traductor\ITraduccion.cs" />
     <Compile Include="DAL\IAccesoDB.cs" />
+    <Compile Include="DAL\ICategoria.cs" />
+    <Compile Include="DAL\IDigitosVerificadoresVerticales.cs" />
     <Compile Include="DAL\IEmpleado.cs" />
     <Compile Include="DAL\IPermiso.cs" />
+    <Compile Include="DAL\IProducto.cs" />
     <Compile Include="DAL\IRol.cs" />
     <Compile Include="DAL\Traductor\IIdioma.cs" />
     <Compile Include="DAL\Traductor\IPalabra.cs" />
     <Compile Include="DAL\Traductor\ITraduccion.cs" />
+    <Compile Include="Entities\ICambioCategoria.cs" />
     <Compile Include="Entities\ICategoria.cs" />
     <Compile Include="Entities\IEventoBitacora.cs" />
     <Compile Include="Entities\IPermiso.cs" />
@@ -66,6 +72,7 @@
     <Compile Include="Entities\IEmpleado.cs" />
     <Compile Include="Entities\IEntidadPersistente.cs" />
     <Compile Include="Entities\IPersona.cs" />
+    <Compile Include="IDVV.cs" />
     <Compile Include="IObservableIdioma.cs" />
     <Compile Include="IObserverIdioma.cs" />
     <Compile Include="IReadable.cs" />

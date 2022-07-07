@@ -134,6 +134,12 @@
     <Compile Include="FrmPrimerEmpleado.Designer.cs">
       <DependentUpon>FrmPrimerEmpleado.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProducto.Designer.cs">
+      <DependentUpon>FrmProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmRoles.cs">
       <SubType>Form</SubType>
     </Compile>

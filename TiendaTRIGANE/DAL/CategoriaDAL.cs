@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class CategoriaDAL : Abstracciones.DAL.ICategoria
+    public class Categoria : Abstracciones.DAL.ICategoria
     {
         private readonly IAccesoDB _db;
 
-        public CategoriaDAL(IAccesoDB db = null)
+        public Categoria(IAccesoDB db = null)
         {
             _db = db ?? new ConexionDAL();
         }
@@ -31,7 +31,6 @@ namespace DAL
                     idReturnValue,
                     new SqlParameter("@Nombre", categoria.Nombre),
                     new SqlParameter("@PorcentajeDescuento", categoria.PorcentajeDescuento),
-                    new SqlParameter("@Perecedera", categoria.Perecedera),
                     new SqlParameter("@Activo", categoria.EstadoActivo)
                 };
                 await _db.WriteStoredProcedure("CATEGORIA_CREATE", parametersCategoriaCreate);
@@ -57,7 +56,6 @@ namespace DAL
                     new SqlParameter("@idCategoria", categoria.ID),
                     new SqlParameter("@Nombre", categoria.Nombre),
                     new SqlParameter("@PorcentajeDescuento", categoria.PorcentajeDescuento),
-                    new SqlParameter("@Perecedera", categoria.Perecedera),
                     new SqlParameter("@DNIEmpleadoCambio", Servicios.SesionAdmin.GetInstance.Empleado.DNI),
                     new SqlParameter("@TipoCambio", tipoCambio.NombrePalabra),
                     new SqlParameter("@FechaCambio", DateTime.Now)
@@ -96,8 +94,7 @@ namespace DAL
                 SqlParameter[] parameters = {
                     new SqlParameter("@idCategoria", categoria.ID),
                     new SqlParameter("@Nombre", categoria.Nombre),
-                    new SqlParameter("@PorcentajeDescuento", categoria.PorcentajeDescuento),
-                    new SqlParameter("@Perecedera", categoria.Perecedera)
+                    new SqlParameter("@PorcentajeDescuento", categoria.PorcentajeDescuento)
                 };
 
                 await _db.WriteStoredProcedure("CATEGORIA_UPDATE", parameters);

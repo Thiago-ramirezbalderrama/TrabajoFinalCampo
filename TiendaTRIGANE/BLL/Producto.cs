@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using Abstracciones.Entities;
 
 namespace BLL
 {
@@ -18,8 +17,8 @@ namespace BLL
         public async Task Create(Abstracciones.Entities.IProducto producto)
         {
             Servicios.PermisosAdmin.CheckPermission("productsCREATE");
-            producto.CantidadAlmacenes = 0;
-            producto.CantidadGondolas = 0;
+            producto.CantidadDepositos = 0;
+            producto.CantidadExhibidores = 0;
             producto.AdvertenciaBajoStock = 0;
             await _productoData.Create(producto);
         }
@@ -27,7 +26,7 @@ namespace BLL
         public async Task Delete(Abstracciones.Entities.IProducto producto)
         {
             Servicios.PermisosAdmin.CheckPermission("productsDELETE");
-            if (producto.CantidadAlmacenes + producto.CantidadGondolas > 0)
+            if (producto.CantidadDepositos + producto.CantidadExhibidores > 0)
             {
                 throw new Excepciones.TheresStillProductsLeftToSellException();
             }
@@ -49,15 +48,15 @@ namespace BLL
             await _productoData.Update(producto);
         }
 
-        public async Task ReponerGondolas(Abstracciones.Entities.IProducto producto, int cantidadRepuesta)
+        public async Task ReponerExhibidores(Abstracciones.Entities.IProducto producto, int cantidadRepuesta)
         {
             Servicios.PermisosAdmin.CheckPermission("productsREPLENISH");
-            int cantidadAnterior = producto.CantidadGondolas;
-            producto.CantidadGondolas += cantidadRepuesta;
-            producto.CantidadAlmacenes -= cantidadRepuesta;
-            if (producto.CantidadAlmacenes <= 0)
+            int cantidadAnterior = producto.CantidadExhibidores;
+            producto.CantidadExhibidores += cantidadRepuesta;
+            producto.CantidadDepositos -= cantidadRepuesta;
+            if (producto.CantidadDepositos <= 0)
             {
-                producto.CantidadAlmacenes = 0;
+                producto.CantidadDepositos = 0;
             }
             await _productoData.Update(producto);
         }
@@ -66,6 +65,7 @@ namespace BLL
         {
             Servicios.PermisosAdmin.CheckPermission("productsREAD");
             var productos = await _productoData.GetAll();
+
             return productos;
         }
 
@@ -73,6 +73,7 @@ namespace BLL
         {
             Servicios.PermisosAdmin.CheckPermission("productsREAD");
             var productos = await _productoData.GetAll(categoria);
+
             return productos;
         }
 
@@ -91,6 +92,5 @@ namespace BLL
 
             return productos;
         }
-
     }
 }

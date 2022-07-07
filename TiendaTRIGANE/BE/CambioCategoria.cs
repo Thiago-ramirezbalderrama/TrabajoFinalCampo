@@ -5,7 +5,6 @@ namespace BE
 {
     public class CambioCategoria : EntidadPersistente, ICambioCategoria
     {
-
         public Abstracciones.Entities.Traductor.IPalabra TipoCambio { get; set; }
         public DateTime FechaCambio { get; set; }
         public ICategoria EstadoCategoria { get; set; }
@@ -19,6 +18,5 @@ namespace BE
                 TipoCambio.Equals(cambio.TipoCambio) &&
                 EstadoCategoria.Equals(cambio.EstadoCategoria);
         }
-
     }
 }

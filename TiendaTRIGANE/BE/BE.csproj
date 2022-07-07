@@ -41,7 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CambioCategoria.cs" />
+    <Compile Include="Categoria.cs" />
     <Compile Include="Cliente.cs" />
+    <Compile Include="DVV.cs" />
     <Compile Include="Empleado.cs" />
     <Compile Include="EntidadPersistente.cs" />
     <Compile Include="EventoBitacora.cs" />

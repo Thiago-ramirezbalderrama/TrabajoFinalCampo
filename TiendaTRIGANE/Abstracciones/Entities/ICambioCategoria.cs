@@ -2,7 +2,7 @@
 
 namespace Abstracciones.Entities
 {
-public interface ICambioCategoria : IEntidadPersistente, IEquatable<ICambioCategoria>
+    public interface ICambioCategoria : IEntidadPersistente, IEquatable<ICambioCategoria>
     {
         IEmpleado EmpleadoCambio { get; set; }
         Traductor.IPalabra TipoCambio { get; set; }

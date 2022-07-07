@@ -13,8 +13,8 @@ namespace BE
         public string Nombre { get; set; }
         public double PrecioUnitario { get; set; }
         public ICategoria Categoria { get; set; }
-        public int CantidadAlmacenes { get; set; }
-        public int CantidadGondolas { get; set; }
+        public int CantidadDepositos { get; set; }
+        public int CantidadExhibidores { get; set; }
         public int AdvertenciaBajoStock { get; set; }
         public bool Equals(IProducto producto)
         {
@@ -23,8 +23,8 @@ namespace BE
             return Nombre == producto.Nombre &&
                 PrecioUnitario == producto.PrecioUnitario &&
                 Categoria.Equals(Categoria) &&
-                CantidadAlmacenes == producto.CantidadAlmacenes &&
-                CantidadGondolas == producto.CantidadGondolas &&
+                CantidadDepositos == producto.CantidadDepositos &&
+                CantidadExhibidores == producto.CantidadExhibidores &&
                 AdvertenciaBajoStock == producto.AdvertenciaBajoStock;
         }
 

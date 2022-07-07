@@ -44,9 +44,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CategoriaDAL.cs" />
     <Compile Include="ConexionDAL.cs" />
+    <Compile Include="DigitosVerificadoresVerticales.cs" />
     <Compile Include="EmpleadoDAL.cs" />
     <Compile Include="Permiso.cs" />
+    <Compile Include="ProductoDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RolDAL.cs" />
     <Compile Include="Traductor\Idioma.cs" />

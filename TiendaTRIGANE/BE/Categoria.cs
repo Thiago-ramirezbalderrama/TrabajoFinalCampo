@@ -1,4 +1,4 @@
-﻿using Abstracciones.Entities
+﻿using Abstracciones.Entities;
 
 namespace BE
 {
@@ -12,8 +12,7 @@ namespace BE
             if (categoria == null || !base.Equals(categoria)) return false;
 
             return Nombre == categoria.Nombre &&
-                PorcentajeDescuento == categoria.PorcentajeDescuento &&
-                Perecedera == categoria.Perecedera;
+                PorcentajeDescuento == categoria.PorcentajeDescuento;
         }
     }
 }

@@ -11,7 +11,7 @@ namespace Abstracciones.BL
         IUpdateable<Entities.IProducto>,
         IDeletable<Entities.IProducto>
     {
-        Task ReponerGondolas(Entities.IProducto producto, int cantidadRepuesta);
+        Task ReponerExhibidores(Entities.IProducto producto, int cantidadRepuesta);
         Task UpdateLowStockWarning(Entities.IProducto producto, int nuevaCantidad);
         Task<IList<Entities.IProducto>> GetAll(Entities.ICategoria categoria);
 
