@@ -1,12 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Abstracciones.Entities;
 
 namespace BE
 {
-    internal class Proveedor
+    public class Proveedor : Persona, IProveedor
     {
+        public Proveedor(ICategoria categoria)
+        {
+            Categoria = categoria;
+        }
+
+        public ICategoria Categoria { get; set; }
+
+        public bool Equals(IProveedor proveedor)
+        {
+            if (proveedor == null || !base.Equals(proveedor)) return false;
+
+            return Categoria == proveedor.Categoria;
+        }
     }
 }

@@ -15,7 +15,7 @@ namespace Servicios
         private const int ITERATIONS = 20000;
         private const string DVH_SALT = "hfjdasklhgwuerighbrwe";
         private const string DVV_SALT = "hrewiorweyuiorweyuioo";
-        private static bool bIntegrity = true;
+        private static bool bIntegrity = false;
 
 
         public static bool checkIntegrity

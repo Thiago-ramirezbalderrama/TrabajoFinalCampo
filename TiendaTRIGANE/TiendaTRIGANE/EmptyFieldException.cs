@@ -10,7 +10,7 @@ namespace TiendaTRIGANE
     {
         public EmptyFieldException(string fieldName)
         {
-            throw new Exception($"{fieldName}: {/*Program.LanguageManager.Traducir*/("field_cannot_be_empty")}");
+            throw new Exception($"{fieldName}: {Program.LenguajeAdmin.Traducir("field_cannot_be_empty")}");
         }
     }
 }

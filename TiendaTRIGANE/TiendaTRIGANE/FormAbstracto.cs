@@ -37,11 +37,11 @@ namespace TiendaTRIGANE
         {
             if (ex is Servicios.Excepciones.NotAllowedException exPermisoFaltante)
             {
-                MessageBox.Show(/*Program.LanguageManager.Traducir*/(exPermisoFaltante.Palabra), /*Program.LanguageManager.Traducir*/(exPermisoFaltante.Permiso), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Program.LenguajeAdmin.Traducir(exPermisoFaltante.Palabra), Program.LenguajeAdmin.Traducir(exPermisoFaltante.Permiso), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (ex is Servicios.Excepciones.CustomTranslatableException exTraducible)
             {
-                MessageBox.Show(/*Program.LanguageManager.Traducir*/(exTraducible.Palabra), "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(Program.LenguajeAdmin.Traducir(exTraducible.Palabra), "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {

@@ -9,7 +9,6 @@ namespace Abstracciones.Entities
         string Nombre { get; set; }
         string Apellido { get; set; }
         string Presentacion { get; }
-        string Telefono { get; set; }
         string Email { get; set; }
         DateTime FechaNacimiento { get; set; }
 

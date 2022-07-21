@@ -91,10 +91,10 @@ namespace DAL
                     (await _dvv.Get("productos")).DV
                 );
 
-                if (!resultadoVerificacion)
+                /*if (!resultadoVerificacion)
                 {
                     throw new Servicios.Excepciones.UnauthorizedInsertionOrDeletionException();
-                }
+                }*/
                 return productos.Where(producto => producto.EstadoActivo).ToList();
             }
             catch (SqlException ex)
@@ -130,9 +130,7 @@ namespace DAL
                     ICategoria categoria = new BE.Categoria
                     {
                         ID = int.Parse(registro["idCategoria"].ToString()),
-                        Nombre = registro["Categoria_Nombre"].ToString(),
-                        Perecedera = bool.Parse(registro["Categoria_Perecedera"].ToString()),
-                        PorcentajeDescuento = byte.Parse(registro["Categoria_PorcentajeDescuento"].ToString())
+                        Nombre = registro["Categoria_Nombre"].ToString()
                     };
 
                     var producto = new BE.Producto(categoria)

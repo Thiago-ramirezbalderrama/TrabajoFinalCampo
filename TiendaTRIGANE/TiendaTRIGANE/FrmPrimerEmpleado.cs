@@ -34,7 +34,7 @@ namespace TiendaTRIGANE
                 var PasswordsMatch = ctrlTexto3.Texto == ctrlTexto4.Texto;
                 if (!PasswordsMatch)
                 {
-                    MessageBox.Show(/*Program.LanguageManager.Traducir*/("passwords_dont_match"), "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(Program.LenguajeAdmin.Traducir("passwords_dont_match"), "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -66,13 +66,12 @@ namespace TiendaTRIGANE
 
             //el unico rol que deberia estar cargado despues de la instalacion es el de administrador de sistema
             roles = (List<Abstracciones.Entities.IRol>)await _rolBL.GetAll();
-            //ActualizarIdioma();
+            ActualizarIdioma();
             StopProgressBar(progressBar1);
         }
 
-        /*public void ActualizarIdioma()
+        public void ActualizarIdioma()
         {
-            TranslateByTag(label1);
             TranslateByTag(label2);
             TranslateByTag(ctrlNum1);
             TranslateByTag(ctrlTexto1);
@@ -80,9 +79,8 @@ namespace TiendaTRIGANE
             TranslateByTag(ctrlTexto3);
             TranslateByTag(ctrlTexto4);
             TranslateByTag(ctrlTexto5);
-            TranslateByTag(ctrlTelefono1);
             TranslateByTag(btnRegistrarse);
             TranslateByTag(this);
-        }*/
+        }
     }
 }

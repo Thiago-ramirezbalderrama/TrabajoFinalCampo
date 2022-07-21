@@ -30,7 +30,6 @@ namespace DAL
                 SqlParameter[] parametersCategoriaCreate = {
                     idReturnValue,
                     new SqlParameter("@Nombre", categoria.Nombre),
-                    new SqlParameter("@PorcentajeDescuento", categoria.PorcentajeDescuento),
                     new SqlParameter("@Activo", categoria.EstadoActivo)
                 };
                 await _db.WriteStoredProcedure("CATEGORIA_CREATE", parametersCategoriaCreate);
@@ -55,7 +54,6 @@ namespace DAL
                 SqlParameter[] parametersCategoriaCreateSnapshot = {
                     new SqlParameter("@idCategoria", categoria.ID),
                     new SqlParameter("@Nombre", categoria.Nombre),
-                    new SqlParameter("@PorcentajeDescuento", categoria.PorcentajeDescuento),
                     new SqlParameter("@DNIEmpleadoCambio", Servicios.SesionAdmin.GetInstance.Empleado.DNI),
                     new SqlParameter("@TipoCambio", tipoCambio.NombrePalabra),
                     new SqlParameter("@FechaCambio", DateTime.Now)
@@ -93,8 +91,7 @@ namespace DAL
             {
                 SqlParameter[] parameters = {
                     new SqlParameter("@idCategoria", categoria.ID),
-                    new SqlParameter("@Nombre", categoria.Nombre),
-                    new SqlParameter("@PorcentajeDescuento", categoria.PorcentajeDescuento)
+                    new SqlParameter("@Nombre", categoria.Nombre)
                 };
 
                 await _db.WriteStoredProcedure("CATEGORIA_UPDATE", parameters);
@@ -127,9 +124,7 @@ namespace DAL
                     var categoria = new BE.Categoria
                     {
                         ID = int.Parse(registro["idCategoria"].ToString()),
-                        Nombre = registro["Nombre"].ToString(),
-                        Perecedera = bool.Parse(registro["Perecedera"].ToString()),
-                        PorcentajeDescuento = byte.Parse(registro["PorcentajeDescuento"].ToString()),
+                        Nombre = registro["Nombre"].ToString()
                     };
                     categorias.Add(categoria);
                 }
@@ -156,9 +151,7 @@ namespace DAL
                     var Categoria = new BE.Categoria
                     {
                         ID = int.Parse(registro["idCategoria"].ToString()),
-                        Nombre = registro["Nombre"].ToString(),
-                        PorcentajeDescuento = byte.Parse(registro["PorcentajeDescuento"].ToString()),
-                        Perecedera = bool.Parse(registro["Perecedera"].ToString())
+                        Nombre = registro["Nombre"].ToString()
                     };
 
                     var RolEmpleadoCambio = new BE.Rol
@@ -173,8 +166,7 @@ namespace DAL
                         Nombre = registro["Empleado_Cambio_Nombre"].ToString(),
                         Apellido = registro["Empleado_Cambio_Apellido"].ToString(),
                         FechaNacimiento = DateTime.Parse(registro["Empleado_Cambio_FechaNacimiento"].ToString()),
-                        Email = registro["Empleado_Cambio_Email"].ToString(),
-                        Telefono = registro["Empleado_Cambio_Telefono"].ToString()
+                        Email = registro["Empleado_Cambio_Email"].ToString()
                     };
 
                     var historialCambios = new BE.CambioCategoria

@@ -36,6 +36,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tvPermisosDisponibles = new System.Windows.Forms.TreeView();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.treeView1 = new System.Windows.Forms.TreeView();
             this.SuspendLayout();
             // 
             // label1
@@ -72,9 +73,10 @@
             // 
             // btnAgregarPermisoRol
             // 
-            this.btnAgregarPermisoRol.Location = new System.Drawing.Point(646, 132);
+            this.btnAgregarPermisoRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarPermisoRol.Location = new System.Drawing.Point(605, 224);
             this.btnAgregarPermisoRol.Name = "btnAgregarPermisoRol";
-            this.btnAgregarPermisoRol.Size = new System.Drawing.Size(103, 48);
+            this.btnAgregarPermisoRol.Size = new System.Drawing.Size(129, 66);
             this.btnAgregarPermisoRol.TabIndex = 3;
             this.btnAgregarPermisoRol.Tag = "assign_permission";
             this.btnAgregarPermisoRol.Text = "Asignar permiso al rol";
@@ -83,9 +85,10 @@
             // 
             // btnRemoverPermisoRol
             // 
-            this.btnRemoverPermisoRol.Location = new System.Drawing.Point(646, 240);
+            this.btnRemoverPermisoRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemoverPermisoRol.Location = new System.Drawing.Point(605, 331);
             this.btnRemoverPermisoRol.Name = "btnRemoverPermisoRol";
-            this.btnRemoverPermisoRol.Size = new System.Drawing.Size(103, 41);
+            this.btnRemoverPermisoRol.Size = new System.Drawing.Size(129, 58);
             this.btnRemoverPermisoRol.TabIndex = 4;
             this.btnRemoverPermisoRol.Tag = "remove_permission";
             this.btnRemoverPermisoRol.Text = "Remover permiso del rol";
@@ -96,7 +99,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 217);
+            this.label3.Location = new System.Drawing.Point(10, 448);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(157, 20);
             this.label3.TabIndex = 5;
@@ -104,9 +107,9 @@
             // 
             // tvPermisosDisponibles
             // 
-            this.tvPermisosDisponibles.Location = new System.Drawing.Point(14, 240);
+            this.tvPermisosDisponibles.Location = new System.Drawing.Point(12, 471);
             this.tvPermisosDisponibles.Name = "tvPermisosDisponibles";
-            this.tvPermisosDisponibles.Size = new System.Drawing.Size(555, 149);
+            this.tvPermisosDisponibles.Size = new System.Drawing.Size(662, 158);
             this.tvPermisosDisponibles.TabIndex = 6;
             // 
             // progressBar1
@@ -116,11 +119,20 @@
             this.progressBar1.Size = new System.Drawing.Size(149, 27);
             this.progressBar1.TabIndex = 7;
             // 
+            // treeView1
+            // 
+            this.treeView1.Location = new System.Drawing.Point(12, 175);
+            this.treeView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.treeView1.Name = "treeView1";
+            this.treeView1.Size = new System.Drawing.Size(512, 247);
+            this.treeView1.TabIndex = 8;
+            // 
             // FrmPermisos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 640);
+            this.Controls.Add(this.treeView1);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.tvPermisosDisponibles);
             this.Controls.Add(this.label3);
@@ -149,5 +161,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TreeView tvPermisosDisponibles;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.TreeView treeView1;
     }
 }

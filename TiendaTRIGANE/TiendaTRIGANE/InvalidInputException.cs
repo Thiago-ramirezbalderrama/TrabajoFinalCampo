@@ -10,7 +10,7 @@ namespace TiendaTRIGANE
     {
         public InvalidInputException(string fieldName)
         {
-            throw new Exception($"{fieldName}: {/*Program.LanguageManager.Traducir*/("invalid_input")}");
+            throw new Exception($"{fieldName}: {Program.LenguajeAdmin.Traducir("invalid_input")}");
         }
     }
 }

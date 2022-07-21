@@ -104,11 +104,53 @@
     <Compile Include="FrmCambiarIdioma.Designer.cs">
       <DependentUpon>FrmCambiarIdioma.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCategorias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCategorias.Designer.cs">
+      <DependentUpon>FrmCategorias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCategoriasCambios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCategoriasCambios.Designer.cs">
+      <DependentUpon>FrmCategoriasCambios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDetallesEntregaReabastecimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDetallesEntregaReabastecimiento.Designer.cs">
+      <DependentUpon>FrmDetallesEntregaReabastecimiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDetallesSolicitudReabastecimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDetallesSolicitudReabastecimiento.Designer.cs">
+      <DependentUpon>FrmDetallesSolicitudReabastecimiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDetallesVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDetallesVenta.Designer.cs">
+      <DependentUpon>FrmDetallesVenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmEmpleados.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmEmpleados.Designer.cs">
       <DependentUpon>FrmEmpleados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGenerarEntregaReabastecimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGenerarEntregaReabastecimiento.Designer.cs">
+      <DependentUpon>FrmGenerarEntregaReabastecimiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGenerarSolicitudReabastecimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGenerarSolicitudReabastecimiento.Designer.cs">
+      <DependentUpon>FrmGenerarSolicitudReabastecimiento.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmIdiomas.cs">
       <SubType>Form</SubType>
@@ -139,6 +181,36 @@
     </Compile>
     <Compile Include="FrmProducto.Designer.cs">
       <DependentUpon>FrmProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProveedores.Designer.cs">
+      <DependentUpon>FrmProveedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReabastecimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReabastecimiento.Designer.cs">
+      <DependentUpon>FrmReabastecimiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRealizarVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRealizarVenta.Designer.cs">
+      <DependentUpon>FrmRealizarVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRegistrosVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRegistrosVentas.Designer.cs">
+      <DependentUpon>FrmRegistrosVentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReponerExhibidores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReponerExhibidores.Designer.cs">
+      <DependentUpon>FrmReponerExhibidores.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmRoles.cs">
       <SubType>Form</SubType>
@@ -171,8 +243,29 @@
     <EmbeddedResource Include="FrmCambiarIdioma.resx">
       <DependentUpon>FrmCambiarIdioma.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmCategorias.resx">
+      <DependentUpon>FrmCategorias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCategoriasCambios.resx">
+      <DependentUpon>FrmCategoriasCambios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDetallesEntregaReabastecimiento.resx">
+      <DependentUpon>FrmDetallesEntregaReabastecimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDetallesSolicitudReabastecimiento.resx">
+      <DependentUpon>FrmDetallesSolicitudReabastecimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDetallesVenta.resx">
+      <DependentUpon>FrmDetallesVenta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmEmpleados.resx">
       <DependentUpon>FrmEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGenerarEntregaReabastecimiento.resx">
+      <DependentUpon>FrmGenerarEntregaReabastecimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGenerarSolicitudReabastecimiento.resx">
+      <DependentUpon>FrmGenerarSolicitudReabastecimiento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmIdiomas.resx">
       <DependentUpon>FrmIdiomas.cs</DependentUpon>
@@ -185,6 +278,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPrimerEmpleado.resx">
       <DependentUpon>FrmPrimerEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmProducto.resx">
+      <DependentUpon>FrmProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmProveedores.resx">
+      <DependentUpon>FrmProveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReabastecimiento.resx">
+      <DependentUpon>FrmReabastecimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRealizarVenta.resx">
+      <DependentUpon>FrmRealizarVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRegistrosVentas.resx">
+      <DependentUpon>FrmRegistrosVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReponerExhibidores.resx">
+      <DependentUpon>FrmReponerExhibidores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRoles.resx">
       <DependentUpon>FrmRoles.cs</DependentUpon>

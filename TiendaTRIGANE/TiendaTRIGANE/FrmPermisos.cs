@@ -26,9 +26,6 @@ namespace TiendaTRIGANE
             InitializeComponent();
         }
 
-        private Abstracciones.Entities.IPermiso permisoBaseRol { get; set; }
-        private Abstracciones.Entities.IPermiso permisoBaseDisponibles { get; set; }
-
         private async void FrmPermisos_Load(object sender, EventArgs e)
         {
             try
@@ -60,6 +57,9 @@ namespace TiendaTRIGANE
 
 
 
+        private Abstracciones.Entities.IPermiso permisoBaseRol { get; set; }
+        private Abstracciones.Entities.IPermiso permisoBaseDisponibles { get; set; }
+
         private void UpdatePermisosDisponiblesUI()
         {
             //permisos disponibles
@@ -85,7 +85,6 @@ namespace TiendaTRIGANE
             //actualizar treeview del rol
             comboBox1_SelectedIndexChanged(new object(), new EventArgs());
         }
-
 
         public void ActualizarIdioma()
         {
@@ -128,7 +127,7 @@ namespace TiendaTRIGANE
 
                 progressBar1.Visible = true;
                 permisoBaseRol = await _permisoBL.GetAllByRole((Abstracciones.Entities.IRol)comboBox1.SelectedItem);
-                tvPermisosDisponibles.Nodes.Clear();
+                treeView1.Nodes.Clear();
                 if (permisoBaseRol == null) return;
 
                 var root = new TreeNode(Program.LenguajeAdmin.Traducir(permisoBaseRol.Descripcion.NombrePalabra))
@@ -140,9 +139,9 @@ namespace TiendaTRIGANE
                     LlenarTreeView(root, permiso);
                 }
 
-                tvPermisosDisponibles.Nodes.Add(root);
-                tvPermisosDisponibles.Nodes[0].Expand();
-                foreach (TreeNode node in tvPermisosDisponibles.Nodes[0].Nodes)
+                treeView1.Nodes.Add(root);
+                treeView1.Nodes[0].Expand();
+                foreach (TreeNode node in treeView1.Nodes[0].Nodes)
                 {
                     node.Collapse();
                 }
@@ -183,7 +182,7 @@ namespace TiendaTRIGANE
         {
             try
             {
-                var PermisoRol = (Abstracciones.Entities.IPermiso)tvPermisosDisponibles.SelectedNode.Tag;
+                var PermisoRol = (Abstracciones.Entities.IPermiso)treeView1.SelectedNode.Tag;
                 if (PermisoRol != null)
                 {
                     await _permisoBL.RemoverPermiso(((BE.Rol)comboBox1.SelectedItem), PermisoRol);

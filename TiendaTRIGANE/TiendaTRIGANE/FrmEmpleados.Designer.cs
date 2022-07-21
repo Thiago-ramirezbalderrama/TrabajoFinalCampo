@@ -69,7 +69,7 @@
             this.ctrlTexto1.MaxLenght = 32767;
             this.ctrlTexto1.Name = "ctrlTexto1";
             this.ctrlTexto1.Size = new System.Drawing.Size(215, 57);
-            this.ctrlTexto1.TabIndex = 1;
+            this.ctrlTexto1.TabIndex = 2;
             this.ctrlTexto1.Tag = "name";
             this.ctrlTexto1.Texto = "";
             // 
@@ -81,7 +81,7 @@
             this.ctrlTexto2.MaxLenght = 32767;
             this.ctrlTexto2.Name = "ctrlTexto2";
             this.ctrlTexto2.Size = new System.Drawing.Size(215, 57);
-            this.ctrlTexto2.TabIndex = 2;
+            this.ctrlTexto2.TabIndex = 3;
             this.ctrlTexto2.Tag = "surname";
             this.ctrlTexto2.Texto = "";
             // 
@@ -91,7 +91,7 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(24, 280);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(256, 22);
-            this.dateTimePicker1.TabIndex = 3;
+            this.dateTimePicker1.TabIndex = 4;
             this.dateTimePicker1.Tag = "birth_date";
             // 
             // ctrlTexto3
@@ -102,7 +102,7 @@
             this.ctrlTexto3.MaxLenght = 32767;
             this.ctrlTexto3.Name = "ctrlTexto3";
             this.ctrlTexto3.Size = new System.Drawing.Size(215, 57);
-            this.ctrlTexto3.TabIndex = 4;
+            this.ctrlTexto3.TabIndex = 6;
             this.ctrlTexto3.Tag = "input_password";
             this.ctrlTexto3.Texto = "";
             // 
@@ -114,7 +114,7 @@
             this.ctrlTexto4.MaxLenght = 32767;
             this.ctrlTexto4.Name = "ctrlTexto4";
             this.ctrlTexto4.Size = new System.Drawing.Size(215, 57);
-            this.ctrlTexto4.TabIndex = 5;
+            this.ctrlTexto4.TabIndex = 7;
             this.ctrlTexto4.Tag = "repeat_password";
             this.ctrlTexto4.Texto = "";
             // 
@@ -126,7 +126,7 @@
             this.ctrlTexto5.MaxLenght = 32767;
             this.ctrlTexto5.Name = "ctrlTexto5";
             this.ctrlTexto5.Size = new System.Drawing.Size(215, 57);
-            this.ctrlTexto5.TabIndex = 6;
+            this.ctrlTexto5.TabIndex = 1;
             this.ctrlTexto5.Tag = "email";
             this.ctrlTexto5.Texto = "";
             // 
@@ -180,7 +180,7 @@
             this.comboBox1.Location = new System.Drawing.Point(326, 284);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 11;
+            this.comboBox1.TabIndex = 5;
             this.comboBox1.Tag = "role";
             // 
             // label5

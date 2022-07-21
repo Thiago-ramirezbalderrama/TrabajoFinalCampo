@@ -165,5 +165,40 @@ namespace TiendaTRIGANE
         {
             new FrmCambiarIdioma().ShowDialog();
         }
+
+        private void btnProductos_Click(object sender, EventArgs e)
+        {
+            openChildForm(new FrmProducto());
+        }
+
+        private void btnCategorias_Click(object sender, EventArgs e)
+        {
+            openChildForm(new FrmCategorias());
+        }
+
+        private void btnProveedores_Click(object sender, EventArgs e)
+        {
+            openChildForm(new FrmProveedores());
+        }
+
+        private void btnVenta_Click(object sender, EventArgs e)
+        {
+            openChildForm(new FrmRealizarVenta());
+        }
+
+        private void btnRegistroVentas_Click(object sender, EventArgs e)
+        {
+            openChildForm(new FrmRegistrosVentas());
+        }
+
+        private void btnReabastecimiento_Click(object sender, EventArgs e)
+        {
+            openChildForm(new FrmReabastecimiento());
+        }
+
+        private void btnReponerMostradores_Click(object sender, EventArgs e)
+        {
+            openChildForm(new FrmReponerExhibidores());
+        }
     }
 }

@@ -35,6 +35,8 @@
             this.btnMaximizar = new System.Windows.Forms.PictureBox();
             this.btnCerrarApp = new System.Windows.Forms.PictureBox();
             this.panelBotones = new System.Windows.Forms.Panel();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.btnCategorias = new System.Windows.Forms.Button();
             this.panel15 = new System.Windows.Forms.Panel();
             this.btnRegistroVentas = new System.Windows.Forms.Button();
             this.panel14 = new System.Windows.Forms.Panel();
@@ -142,6 +144,8 @@
             // panelBotones
             // 
             this.panelBotones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.panelBotones.Controls.Add(this.panel16);
+            this.panelBotones.Controls.Add(this.btnCategorias);
             this.panelBotones.Controls.Add(this.panel15);
             this.panelBotones.Controls.Add(this.btnRegistroVentas);
             this.panelBotones.Controls.Add(this.panel14);
@@ -176,6 +180,31 @@
             this.panelBotones.Size = new System.Drawing.Size(221, 721);
             this.panelBotones.TabIndex = 2;
             // 
+            // panel16
+            // 
+            this.panel16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.panel16.Location = new System.Drawing.Point(2, 435);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(5, 32);
+            this.panel16.TabIndex = 29;
+            // 
+            // btnCategorias
+            // 
+            this.btnCategorias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnCategorias.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCategorias.FlatAppearance.BorderSize = 0;
+            this.btnCategorias.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.btnCategorias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCategorias.ForeColor = System.Drawing.Color.White;
+            this.btnCategorias.Location = new System.Drawing.Point(5, 435);
+            this.btnCategorias.Name = "btnCategorias";
+            this.btnCategorias.Size = new System.Drawing.Size(216, 32);
+            this.btnCategorias.TabIndex = 28;
+            this.btnCategorias.Tag = "categories";
+            this.btnCategorias.Text = "Categorias";
+            this.btnCategorias.UseVisualStyleBackColor = false;
+            this.btnCategorias.Click += new System.EventHandler(this.btnCategorias_Click);
+            // 
             // panel15
             // 
             this.panel15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
@@ -199,6 +228,7 @@
             this.btnRegistroVentas.Tag = "sales_records";
             this.btnRegistroVentas.Text = "Registro de ventas";
             this.btnRegistroVentas.UseVisualStyleBackColor = false;
+            this.btnRegistroVentas.Click += new System.EventHandler(this.btnRegistroVentas_Click);
             // 
             // panel14
             // 
@@ -223,6 +253,7 @@
             this.btnReponerMostradores.Tag = "restock_shelves";
             this.btnReponerMostradores.Text = "Reponer mostradores";
             this.btnReponerMostradores.UseVisualStyleBackColor = false;
+            this.btnReponerMostradores.Click += new System.EventHandler(this.btnReponerMostradores_Click);
             // 
             // panel13
             // 
@@ -247,6 +278,7 @@
             this.btnVenta.Tag = "make_sale";
             this.btnVenta.Text = "Realizar venta";
             this.btnVenta.UseVisualStyleBackColor = false;
+            this.btnVenta.Click += new System.EventHandler(this.btnVenta_Click);
             // 
             // panel12
             // 
@@ -271,6 +303,7 @@
             this.btnReabastecimiento.Tag = "replenishment";
             this.btnReabastecimiento.Text = "Reabastecimiento";
             this.btnReabastecimiento.UseVisualStyleBackColor = false;
+            this.btnReabastecimiento.Click += new System.EventHandler(this.btnReabastecimiento_Click);
             // 
             // panel11
             // 
@@ -295,6 +328,7 @@
             this.btnProductos.Tag = "products";
             this.btnProductos.Text = "Productos";
             this.btnProductos.UseVisualStyleBackColor = false;
+            this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
             // 
             // panel10
             // 
@@ -319,6 +353,7 @@
             this.btnProveedores.Tag = "suppliers";
             this.btnProveedores.Text = "Proveedores";
             this.btnProveedores.UseVisualStyleBackColor = false;
+            this.btnProveedores.Click += new System.EventHandler(this.btnProveedores_Click);
             // 
             // panel9
             // 
@@ -348,7 +383,7 @@
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.panel8.Location = new System.Drawing.Point(3, 549);
+            this.panel8.Location = new System.Drawing.Point(2, 587);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(5, 32);
             this.panel8.TabIndex = 13;
@@ -361,7 +396,7 @@
             this.btnTraducciones.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.btnTraducciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTraducciones.ForeColor = System.Drawing.Color.White;
-            this.btnTraducciones.Location = new System.Drawing.Point(6, 549);
+            this.btnTraducciones.Location = new System.Drawing.Point(5, 587);
             this.btnTraducciones.Name = "btnTraducciones";
             this.btnTraducciones.Size = new System.Drawing.Size(216, 32);
             this.btnTraducciones.TabIndex = 12;
@@ -373,7 +408,7 @@
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.panel7.Location = new System.Drawing.Point(2, 511);
+            this.panel7.Location = new System.Drawing.Point(1, 549);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(5, 32);
             this.panel7.TabIndex = 11;
@@ -386,7 +421,7 @@
             this.btnIdiomas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.btnIdiomas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIdiomas.ForeColor = System.Drawing.Color.White;
-            this.btnIdiomas.Location = new System.Drawing.Point(7, 511);
+            this.btnIdiomas.Location = new System.Drawing.Point(6, 549);
             this.btnIdiomas.Name = "btnIdiomas";
             this.btnIdiomas.Size = new System.Drawing.Size(216, 32);
             this.btnIdiomas.TabIndex = 10;
@@ -398,7 +433,7 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.panel6.Location = new System.Drawing.Point(3, 473);
+            this.panel6.Location = new System.Drawing.Point(2, 511);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(5, 32);
             this.panel6.TabIndex = 9;
@@ -411,7 +446,7 @@
             this.btnPermisos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.btnPermisos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPermisos.ForeColor = System.Drawing.Color.White;
-            this.btnPermisos.Location = new System.Drawing.Point(6, 473);
+            this.btnPermisos.Location = new System.Drawing.Point(5, 511);
             this.btnPermisos.Name = "btnPermisos";
             this.btnPermisos.Size = new System.Drawing.Size(216, 32);
             this.btnPermisos.TabIndex = 8;
@@ -423,7 +458,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.panel5.Location = new System.Drawing.Point(3, 435);
+            this.panel5.Location = new System.Drawing.Point(2, 473);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(5, 32);
             this.panel5.TabIndex = 7;
@@ -436,7 +471,7 @@
             this.btnRoles.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
             this.btnRoles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRoles.ForeColor = System.Drawing.Color.White;
-            this.btnRoles.Location = new System.Drawing.Point(6, 435);
+            this.btnRoles.Location = new System.Drawing.Point(5, 473);
             this.btnRoles.Name = "btnRoles";
             this.btnRoles.Size = new System.Drawing.Size(216, 32);
             this.btnRoles.TabIndex = 6;
@@ -556,7 +591,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panelBotones;
         private System.Windows.Forms.Button btnEmpleados;
-        private System.Windows.Forms.Button btnCambiarContraseña;
+        public System.Windows.Forms.Button btnCambiarContraseña;
         private System.Windows.Forms.Button btnCerrarSesion;
         private System.Windows.Forms.Panel panelChildForm;
         private System.Windows.Forms.Panel panel4;
@@ -588,5 +623,7 @@
         private System.Windows.Forms.Button btnRegistroVentas;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Button btnReponerMostradores;
+        private System.Windows.Forms.Panel panel16;
+        private System.Windows.Forms.Button btnCategorias;
     }
 }
