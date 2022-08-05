@@ -37,6 +37,9 @@
             this.tvPermisosDisponibles = new System.Windows.Forms.TreeView();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.treeView1 = new System.Windows.Forms.TreeView();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnAsignarFamilias = new System.Windows.Forms.Button();
+            this.cbFamilias2 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -74,7 +77,7 @@
             // btnAgregarPermisoRol
             // 
             this.btnAgregarPermisoRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarPermisoRol.Location = new System.Drawing.Point(605, 224);
+            this.btnAgregarPermisoRol.Location = new System.Drawing.Point(385, 181);
             this.btnAgregarPermisoRol.Name = "btnAgregarPermisoRol";
             this.btnAgregarPermisoRol.Size = new System.Drawing.Size(129, 66);
             this.btnAgregarPermisoRol.TabIndex = 3;
@@ -86,7 +89,7 @@
             // btnRemoverPermisoRol
             // 
             this.btnRemoverPermisoRol.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemoverPermisoRol.Location = new System.Drawing.Point(605, 331);
+            this.btnRemoverPermisoRol.Location = new System.Drawing.Point(385, 282);
             this.btnRemoverPermisoRol.Name = "btnRemoverPermisoRol";
             this.btnRemoverPermisoRol.Size = new System.Drawing.Size(129, 58);
             this.btnRemoverPermisoRol.TabIndex = 4;
@@ -109,7 +112,7 @@
             // 
             this.tvPermisosDisponibles.Location = new System.Drawing.Point(12, 471);
             this.tvPermisosDisponibles.Name = "tvPermisosDisponibles";
-            this.tvPermisosDisponibles.Size = new System.Drawing.Size(662, 158);
+            this.tvPermisosDisponibles.Size = new System.Drawing.Size(314, 158);
             this.tvPermisosDisponibles.TabIndex = 6;
             // 
             // progressBar1
@@ -124,14 +127,48 @@
             this.treeView1.Location = new System.Drawing.Point(12, 175);
             this.treeView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(512, 247);
+            this.treeView1.Size = new System.Drawing.Size(366, 247);
             this.treeView1.TabIndex = 8;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(404, 448);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(150, 20);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Familias disponibles";
+            // 
+            // btnAsignarFamilias
+            // 
+            this.btnAsignarFamilias.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAsignarFamilias.Location = new System.Drawing.Point(408, 527);
+            this.btnAsignarFamilias.Name = "btnAsignarFamilias";
+            this.btnAsignarFamilias.Size = new System.Drawing.Size(106, 43);
+            this.btnAsignarFamilias.TabIndex = 12;
+            this.btnAsignarFamilias.Tag = "";
+            this.btnAsignarFamilias.Text = "Asignar";
+            this.btnAsignarFamilias.UseVisualStyleBackColor = true;
+            this.btnAsignarFamilias.Click += new System.EventHandler(this.btnAsignarFamilias_Click);
+            // 
+            // cbFamilias2
+            // 
+            this.cbFamilias2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbFamilias2.FormattingEnabled = true;
+            this.cbFamilias2.Location = new System.Drawing.Point(408, 471);
+            this.cbFamilias2.Name = "cbFamilias2";
+            this.cbFamilias2.Size = new System.Drawing.Size(160, 26);
+            this.cbFamilias2.TabIndex = 13;
             // 
             // FrmPermisos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 640);
+            this.ClientSize = new System.Drawing.Size(837, 640);
+            this.Controls.Add(this.cbFamilias2);
+            this.Controls.Add(this.btnAsignarFamilias);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.treeView1);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.tvPermisosDisponibles);
@@ -162,5 +199,8 @@
         private System.Windows.Forms.TreeView tvPermisosDisponibles;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnAsignarFamilias;
+        private System.Windows.Forms.ComboBox cbFamilias2;
     }
 }

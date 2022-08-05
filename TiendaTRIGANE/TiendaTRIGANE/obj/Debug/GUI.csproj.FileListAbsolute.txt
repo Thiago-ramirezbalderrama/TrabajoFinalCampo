@@ -75,7 +75,6 @@ D:\3er año\Trabajo de Campo\TrabajoFinalCampo-main\TiendaTRIGANE\TiendaTRIGANE\
 D:\3er año\Trabajo de Campo\TrabajoFinalCampo-main\TiendaTRIGANE\TiendaTRIGANE\bin\Debug\Servicios.pdb
 D:\3er año\Trabajo de Campo\TrabajoFinalCampo-main\TiendaTRIGANE\TiendaTRIGANE\bin\Debug\DAL.pdb
 D:\3er año\Trabajo de Campo\TrabajoFinalCampo-main\TiendaTRIGANE\TiendaTRIGANE\obj\Debug\GUI.csproj.AssemblyReference.cache
-D:\3er año\Trabajo de Campo\TrabajoFinalCampo-main\TiendaTRIGANE\TiendaTRIGANE\obj\Debug\GUI.csproj.SuggestedBindingRedirects.cache
 D:\3er año\Trabajo de Campo\TrabajoFinalCampo-main\TiendaTRIGANE\TiendaTRIGANE\obj\Debug\TiendaTRIGANE.Controles_personalizados.ctrlAbstracto.resources
 D:\3er año\Trabajo de Campo\TrabajoFinalCampo-main\TiendaTRIGANE\TiendaTRIGANE\obj\Debug\TiendaTRIGANE.Controles_personalizados.ctrlNum.resources
 D:\3er año\Trabajo de Campo\TrabajoFinalCampo-main\TiendaTRIGANE\TiendaTRIGANE\obj\Debug\TiendaTRIGANE.FrmBase.resources

@@ -39,10 +39,13 @@ namespace TiendaTRIGANE
                     permisosDisponiblesTask,
                     rolesTask
                 );
+                var familias = await _rolBL.GetAll();
 
                 permisoBaseDisponibles = await permisosDisponiblesTask;
                 comboBox1.DataSource = await rolesTask;
                 comboBox1.DisplayMember = "Nombre";
+                cbFamilias2.DataSource = familias;
+                cbFamilias2.DisplayMember = "Nombre";
                 UpdatePermisosDisponiblesUI();
                 ActualizarIdioma();
                 progressBar1.Visible = false;
@@ -59,6 +62,7 @@ namespace TiendaTRIGANE
 
         private Abstracciones.Entities.IPermiso permisoBaseRol { get; set; }
         private Abstracciones.Entities.IPermiso permisoBaseDisponibles { get; set; }
+        private Abstracciones.Entities.IPermiso permisoBaseRolFam { get; set; }
 
         private void UpdatePermisosDisponiblesUI()
         {
@@ -201,5 +205,35 @@ namespace TiendaTRIGANE
                 ShowError(ex);
             }
         }
+
+        private async void btnAsignarFamilias_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                permisoBaseRolFam = await _permisoBL.GetAllByRole((Abstracciones.Entities.IRol)cbFamilias2.SelectedItem);
+                if (permisoBaseRolFam == null) return;
+                asignarPermisoRecursivo(permisoBaseRolFam);
+            }
+            catch (Exception ex)
+            {
+                progressBar1.Visible = false;
+                ShowError(ex);
+            }
+        }
+
+
+        private async void asignarPermisoRecursivo(Abstracciones.Entities.IPermiso permiso)
+        {
+            foreach (var permisoHijo in permiso.Hijos)
+            {
+                if (permisoHijo.esCompuesto)
+                {
+                    asignarPermisoRecursivo(permisoHijo);
+                }
+                await _permisoBL.AsignarPermiso((Abstracciones.Entities.IRol)comboBox1.SelectedItem, permisoHijo);
+            }
+            UpdatePermisosDisponiblesUI();
+        }
+
     }
 }

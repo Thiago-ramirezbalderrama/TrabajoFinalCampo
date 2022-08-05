@@ -49,7 +49,7 @@
             // ctrlTexto1
             // 
             this.ctrlTexto1.Etiqueta = "Contraseña";
-            this.ctrlTexto1.isPassword = false;
+            this.ctrlTexto1.isPassword = true;
             this.ctrlTexto1.Location = new System.Drawing.Point(96, 158);
             this.ctrlTexto1.MaxLenght = 32767;
             this.ctrlTexto1.Name = "ctrlTexto1";

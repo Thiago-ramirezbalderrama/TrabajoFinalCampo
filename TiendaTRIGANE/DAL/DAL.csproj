@@ -48,6 +48,7 @@
     <Compile Include="ConexionDAL.cs" />
     <Compile Include="DigitosVerificadoresVerticales.cs" />
     <Compile Include="EmpleadoDAL.cs" />
+    <Compile Include="FamiliaDAL.cs" />
     <Compile Include="InformeReabastecimientoDAL.cs" />
     <Compile Include="Permiso.cs" />
     <Compile Include="ProductoDAL.cs" />

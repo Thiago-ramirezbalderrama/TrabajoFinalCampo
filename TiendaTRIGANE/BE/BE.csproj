@@ -49,6 +49,7 @@
     <Compile Include="Empleado.cs" />
     <Compile Include="EntidadPersistente.cs" />
     <Compile Include="EventoBitacora.cs" />
+    <Compile Include="Familia.cs" />
     <Compile Include="InformeReabastecimiento.cs" />
     <Compile Include="Palabra.cs" />
     <Compile Include="Permiso.cs" />
