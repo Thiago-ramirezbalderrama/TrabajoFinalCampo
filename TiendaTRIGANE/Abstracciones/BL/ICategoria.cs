@@ -8,7 +8,6 @@ namespace Abstracciones.BL
         IUpdateable<Entities.ICategoria>,
         IDeletable<Entities.ICategoria>
     {
-        Task UpdateDiscount(Entities.ICategoria categoria);
         Task<IList<Entities.ICambioCategoria>> GetAllChanges(Entities.ICategoria categoria);
     }
 }

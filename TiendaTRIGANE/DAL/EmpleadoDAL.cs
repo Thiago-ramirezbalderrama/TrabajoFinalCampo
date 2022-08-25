@@ -13,10 +13,12 @@ namespace DAL
     {
 
         private readonly IAccesoDB _db;
+        private readonly IBitacoraDAL _bitacora;
 
-        public EmpleadoDAL(IAccesoDB db = null)
+        public EmpleadoDAL(IAccesoDB db = null, IBitacoraDAL bitacora = null)
         {
             _db = db ?? new ConexionDAL();
+            _bitacora = bitacora ?? new BitacoraDAL();
         }
 
 
@@ -41,6 +43,7 @@ namespace DAL
             }
             catch (SqlException ex)
             {
+                await _bitacora.LogError("error", "employee", ex.StackTrace);
                 throw new Servicios.Excepciones.DatabaseUnknownErrorException();
             }
         }
@@ -56,6 +59,7 @@ namespace DAL
             }
             catch (SqlException ex)
             {
+                await _bitacora.LogError("error", "employee", ex.StackTrace);
                 throw new Servicios.Excepciones.DatabaseUnknownErrorException();
             }
         }
@@ -81,6 +85,7 @@ namespace DAL
             }
             catch (SqlException ex)
             {
+                await _bitacora.LogError("error", "employee", ex.StackTrace);
                 throw new Servicios.Excepciones.DatabaseUnknownErrorException();
             }
         }
@@ -128,6 +133,7 @@ namespace DAL
             }
             catch (SqlException ex)
             {
+                await _bitacora.LogError("error", "employee", ex.StackTrace);
                 throw new Servicios.Excepciones.DatabaseUnknownErrorException();
             }
         }
@@ -176,6 +182,7 @@ namespace DAL
             }
             catch (SqlException ex)
             {
+                await _bitacora.LogError("error", "employee", ex.StackTrace);
                 throw new Servicios.Excepciones.DatabaseUnknownErrorException();
             }
         }
@@ -193,6 +200,7 @@ namespace DAL
             }
             catch (SqlException ex)
             {
+                await _bitacora.LogError("error", "employee", ex.StackTrace);
                 throw new Servicios.Excepciones.DatabaseUnknownErrorException();
             }
         }
@@ -205,6 +213,7 @@ namespace DAL
             }
             catch (SqlException ex)
             {
+                await _bitacora.LogError("error", "employee", ex.StackTrace);
                 throw new Servicios.Excepciones.DatabaseUnknownErrorException();
             }
         }

@@ -10,14 +10,17 @@ namespace BLL
     {
         private readonly Abstracciones.DAL.IInformeReabastecimiento _informeReabastecimientoData;
         private readonly Abstracciones.DAL.IProducto _productoData;
+        private readonly Abstracciones.BL.IBitacora _bitacora;
 
         public InformeReabastecimiento(
             Abstracciones.DAL.IInformeReabastecimiento informeData = null,
-            Abstracciones.DAL.IProducto productoData = null
+            Abstracciones.DAL.IProducto productoData = null,
+            Abstracciones.BL.IBitacora bitacora = null
             )
         {
             _informeReabastecimientoData = informeData ?? new DAL.InformeReabastecimientoDAL();
             _productoData = productoData ?? new DAL.Producto();
+            _bitacora = bitacora ?? new BLL.Bitacora();
         }
 
         public async Task CrearSolicitud(Abstracciones.Entities.IInformeReabastecimiento informe, IList<Abstracciones.Entities.IDetalle> detalles)
@@ -30,6 +33,7 @@ namespace BLL
             {
                 await _informeReabastecimientoData.CreateDetalleSolicitud(informe, detalle);
             }
+            await _bitacora.LogInformation("replenishment_requested", "replenishment", "");
         }
 
         public async Task TerminarSolicitud(Abstracciones.Entities.IInformeReabastecimiento informe)
@@ -44,6 +48,7 @@ namespace BLL
                 detalle.Producto.CantidadDepositos += detalle.Cantidad;
                 await _productoData.Update(detalle.Producto);
             }
+            await _bitacora.LogInformation("replenishment_request_ended", "replenishment", "");
         }
 
         public async Task<IList<Abstracciones.Entities.IInformeReabastecimiento>> GetAll()

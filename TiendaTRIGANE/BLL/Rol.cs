@@ -11,12 +11,15 @@ namespace BLL
     {
         private readonly Abstracciones.DAL.IRol _rolData;
         private readonly Abstracciones.DAL.IEmpleado _empleadosData;
+        private readonly Abstracciones.BL.IBitacora _bitacora;
 
         public Rol(Abstracciones.DAL.IRol rolData = null,
-            Abstracciones.DAL.IEmpleado empleadosData = null)
+            Abstracciones.DAL.IEmpleado empleadosData = null,
+            Abstracciones.BL.IBitacora bitacora = null)
         {
             _rolData = rolData ?? new DAL.RolDAL();
             _empleadosData = empleadosData ?? new DAL.EmpleadoDAL();
+            _bitacora = bitacora ?? new BLL.Bitacora();
         }
 
         public async Task Create(Abstracciones.Entities.IRol rol)
@@ -24,6 +27,7 @@ namespace BLL
             Servicios.PermisosAdmin.CheckPermission("roleCREATE");
             rol.AdministradorSistema = false;
             await _rolData.Create(rol);
+            await _bitacora.LogInformation("successful_addition", "role", rol.Nombre);
         }
 
         public async Task Delete(Abstracciones.Entities.IRol rol)
@@ -43,6 +47,7 @@ namespace BLL
             }
 
             await _rolData.Delete(rol);
+            await _bitacora.LogInformation("successful_deletion", "role", rol.Nombre);
         }
 
         public async Task Update(Abstracciones.Entities.IRol rol)
@@ -50,6 +55,7 @@ namespace BLL
             Servicios.PermisosAdmin.CheckPermission("roleUPDATE");
             rol.AdministradorSistema = false;
             await _rolData.Update(rol);
+            await _bitacora.LogInformation("successful_update", "role", rol.Nombre);
         }
 
         public async Task<IList<Abstracciones.Entities.IRol>> GetAll()

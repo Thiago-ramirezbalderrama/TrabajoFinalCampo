@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BL\IBitacora.cs" />
     <Compile Include="BL\ICategoria.cs" />
     <Compile Include="BL\IEmpleado.cs" />
     <Compile Include="BL\IFamilia.cs" />
@@ -54,6 +55,7 @@
     <Compile Include="BL\Traductor\IPalabra.cs" />
     <Compile Include="BL\Traductor\ITraduccion.cs" />
     <Compile Include="DAL\IAccesoDB.cs" />
+    <Compile Include="DAL\IBitacoraDAL.cs" />
     <Compile Include="DAL\ICategoria.cs" />
     <Compile Include="DAL\IDigitosVerificadoresVerticales.cs" />
     <Compile Include="DAL\IEmpleado.cs" />

@@ -13,11 +13,13 @@ namespace DAL
     {
         private readonly Abstracciones.DAL.IAccesoDB _db;
         private readonly Abstracciones.DAL.IDigitosVerificadoresVerticales _dvv;
+        private readonly Abstracciones.DAL.IBitacoraDAL _bitacora;
 
-        public Producto(Abstracciones.DAL.IAccesoDB db = null, Abstracciones.DAL.IDigitosVerificadoresVerticales dvv = null)
+        public Producto(Abstracciones.DAL.IAccesoDB db = null, Abstracciones.DAL.IDigitosVerificadoresVerticales dvv = null, Abstracciones.DAL.IBitacoraDAL bitacora = null)
         {
             _db = db ?? new ConexionDAL();
             _dvv = dvv ?? new DigitosVerificadoresVerticales();
+            _bitacora = bitacora ?? new BitacoraDAL();
         }
 
         public async Task Create(IProducto producto)
@@ -45,6 +47,7 @@ namespace DAL
             }
             catch (SqlException ex)
             {
+                await _bitacora.LogError("error", "product", ex.StackTrace);
                 throw new Servicios.Excepciones.DatabaseUnknownErrorException();
             }
         }
@@ -76,6 +79,7 @@ namespace DAL
             }
             catch (SqlException ex)
             {
+                await _bitacora.LogError("error", "product", ex.StackTrace);
                 throw new Servicios.Excepciones.DatabaseUnknownErrorException();
             }
         }
@@ -91,14 +95,16 @@ namespace DAL
                     (await _dvv.Get("productos")).DV
                 );
 
-                /*if (!resultadoVerificacion)
+                if (!resultadoVerificacion)
                 {
+                    await _bitacora.LogError("integrity_check_failed_unauthorized_addition_or_deletion_shortversion", "dvv", "products");
                     throw new Servicios.Excepciones.UnauthorizedInsertionOrDeletionException();
-                }*/
+                }
                 return productos.Where(producto => producto.EstadoActivo).ToList();
             }
             catch (SqlException ex)
             {
+                await _bitacora.LogError("error", "product", ex.StackTrace);
                 throw new Servicios.Excepciones.DatabaseUnknownErrorException();
             }
         }
@@ -147,6 +153,7 @@ namespace DAL
 
                     if (!Servicios.EncriptadoAdmin.VerificarDVH(producto))
                     {
+                        await _bitacora.LogError("integrity_check_failed_unauthorized_update_shortversion", "dvv", producto.Nombre);
                         correctRowIntegrity = false;
                     }
 
@@ -160,6 +167,7 @@ namespace DAL
             }
             catch (SqlException ex)
             {
+                await _bitacora.LogError("error", "product", ex.StackTrace);
                 throw new Servicios.Excepciones.DatabaseUnknownErrorException();
             }
         }
@@ -173,6 +181,7 @@ namespace DAL
             }
             catch (SqlException ex)
             {
+                await _bitacora.LogError("dvh", "product", ex.StackTrace);
                 throw new Servicios.Excepciones.DatabaseUnknownErrorException();
             }
         }

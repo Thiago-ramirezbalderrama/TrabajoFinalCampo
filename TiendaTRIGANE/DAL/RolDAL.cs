@@ -12,10 +12,12 @@ namespace DAL
     {
 
         private readonly Abstracciones.DAL.IAccesoDB _db;
+        private readonly Abstracciones.DAL.IBitacoraDAL _bitacora;
 
-        public RolDAL(Abstracciones.DAL.IAccesoDB db = null)
+        public RolDAL(Abstracciones.DAL.IAccesoDB db = null, Abstracciones.DAL.IBitacoraDAL bitacora = null)
         {
             _db = db ?? new ConexionDAL();
+            _bitacora = bitacora ?? new BitacoraDAL();
         }
 
         public async Task Create(Abstracciones.Entities.IRol rol)
@@ -32,6 +34,7 @@ namespace DAL
             }
             catch (SqlException ex)
             {
+                await _bitacora.LogError("error", "role", ex.StackTrace);
                 throw new Servicios.Excepciones.DatabaseUnknownErrorException();
             }
         }
@@ -50,6 +53,7 @@ namespace DAL
             }
             catch (SqlException ex)
             {
+                await _bitacora.LogError("error", "role", ex.StackTrace);
                 throw new Servicios.Excepciones.DatabaseUnknownErrorException();
             }
         }
@@ -63,6 +67,7 @@ namespace DAL
             }
             catch (SqlException ex)
             {
+                await _bitacora.LogError("error", "role", ex.StackTrace);
                 throw new Servicios.Excepciones.DatabaseUnknownErrorException();
             }
         }
@@ -88,6 +93,7 @@ namespace DAL
             }
             catch (SqlException ex)
             {
+                await _bitacora.LogError("error", "role", ex.StackTrace);
                 throw new Servicios.Excepciones.DatabaseUnknownErrorException();
             }
         }

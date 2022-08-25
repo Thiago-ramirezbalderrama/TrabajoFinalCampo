@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Abstracciones.Entities
 {
@@ -11,6 +7,9 @@ namespace Abstracciones.Entities
 
         IEmpleado Empleado { get; set; }
         DateTime Fecha { get; set; }
+        Traductor.IPalabra Severidad { get; set; }
+        Traductor.IPalabra Actividad { get; set; }
+        Traductor.IPalabra TipoEntidad { get; set; }
         string InfoAsociada { get; set; }
 
     }

@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bitacora.cs" />
     <Compile Include="Categoria.cs" />
     <Compile Include="Empleado.cs" />
     <Compile Include="Excepciones\TheresStillEmployeesWithThisRoleException.cs" />

@@ -9,10 +9,12 @@ namespace DAL
     internal class DigitosVerificadoresVerticales : IDigitosVerificadoresVerticales
     {
         private readonly IAccesoDB _db;
+        private readonly IBitacoraDAL _bitacora;
 
-        public DigitosVerificadoresVerticales(IAccesoDB db = null)
+        public DigitosVerificadoresVerticales(IAccesoDB db = null, IBitacoraDAL bitacora = null)
         {
             _db = db ?? new ConexionDAL();
+            _bitacora = bitacora ?? new BitacoraDAL();
         }
 
         public async Task<Abstracciones.IDVV> Get(string nombreTabla)
@@ -26,6 +28,7 @@ namespace DAL
             }
             catch (SqlException ex)
             {
+                await _bitacora.LogError("dvv_entry_not_found", "dvv", ex.StackTrace);
                 throw new Servicios.Excepciones.DatabaseUnknownErrorException();
             }
         }
@@ -44,6 +47,7 @@ namespace DAL
             }
             catch (SqlException ex)
             {
+                await _bitacora.LogError("error", "dvv", ex.StackTrace);
                 throw new Servicios.Excepciones.DatabaseUnknownErrorException();
             }
         }
@@ -61,6 +65,7 @@ namespace DAL
             }
             catch (SqlException ex)
             {
+                await _bitacora.LogError("error", "dvv", ex.StackTrace);
                 throw new Servicios.Excepciones.DatabaseUnknownErrorException();
             }
         }

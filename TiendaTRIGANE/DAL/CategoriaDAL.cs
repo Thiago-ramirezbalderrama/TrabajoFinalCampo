@@ -11,10 +11,12 @@ namespace DAL
     public class Categoria : Abstracciones.DAL.ICategoria
     {
         private readonly IAccesoDB _db;
+        private readonly IBitacoraDAL _bitacora;
 
-        public Categoria(IAccesoDB db = null)
+        public Categoria(IAccesoDB db = null, IBitacoraDAL bitacora = null)
         {
             _db = db ?? new ConexionDAL();
+            _bitacora = bitacora ?? new BitacoraDAL();
         }
 
         public async Task Create(Abstracciones.Entities.ICategoria categoria)
@@ -43,6 +45,7 @@ namespace DAL
             }
             catch (SqlException ex)
             {
+                await _bitacora.LogError("error", "category", ex.StackTrace);
                 throw new Servicios.Excepciones.DatabaseUnknownErrorException();
             }
         }
@@ -62,6 +65,7 @@ namespace DAL
             }
             catch (SqlException ex)
             {
+                await _bitacora.LogError("error", "category", ex.StackTrace);
                 throw new Servicios.Excepciones.DatabaseUnknownErrorException();
             }
         }
@@ -81,6 +85,7 @@ namespace DAL
             }
             catch (SqlException ex)
             {
+                await _bitacora.LogError("error", "category", ex.StackTrace);
                 throw new Servicios.Excepciones.DatabaseUnknownErrorException();
             }
         }
@@ -108,6 +113,7 @@ namespace DAL
             }
             catch (SqlException ex)
             {
+                await _bitacora.LogError("error", "category", ex.StackTrace);
                 throw new Servicios.Excepciones.DatabaseUnknownErrorException();
             }
         }
@@ -132,6 +138,7 @@ namespace DAL
             }
             catch (SqlException ex)
             {
+                await _bitacora.LogError("error", "category", ex.StackTrace);
                 throw new Servicios.Excepciones.DatabaseUnknownErrorException();
             }
         }
@@ -186,6 +193,7 @@ namespace DAL
             }
             catch (SqlException ex)
             {
+                await _bitacora.LogError("error", "category", ex.StackTrace);
                 throw new Servicios.Excepciones.DatabaseUnknownErrorException();
             }
         }

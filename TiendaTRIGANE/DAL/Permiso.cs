@@ -9,10 +9,12 @@ namespace DAL
     {
 
         private readonly Abstracciones.DAL.IAccesoDB _db;
+        private readonly Abstracciones.DAL.IBitacoraDAL _bitacora;
 
-        public Permiso(Abstracciones.DAL.IAccesoDB db = null)
+        public Permiso(Abstracciones.DAL.IAccesoDB db = null, Abstracciones.DAL.IBitacoraDAL bitacora = null)
         {
             _db = db ?? new ConexionDAL();
+            _bitacora = bitacora ?? new BitacoraDAL();
         }
 
 
@@ -71,6 +73,7 @@ namespace DAL
             }
             catch (SqlException ex)
             {
+                await _bitacora.LogError("error", "permission", ex.StackTrace);
                 throw new Servicios.Excepciones.DatabaseUnknownErrorException();
             }
         }
@@ -128,6 +131,7 @@ namespace DAL
             }
             catch (SqlException ex)
             {
+                await _bitacora.LogError("error", "permission", ex.StackTrace);
                 throw new Servicios.Excepciones.DatabaseUnknownErrorException();
             }
         }
@@ -168,6 +172,7 @@ namespace DAL
             }
             catch (SqlException ex)
             {
+                await _bitacora.LogError("error", "permission", ex.StackTrace);
                 throw new Servicios.Excepciones.DatabaseUnknownErrorException();
             }
         }
@@ -215,6 +220,7 @@ namespace DAL
             }
             catch (SqlException ex)
             {
+                await _bitacora.LogError("error", "permission", ex.StackTrace);
                 throw new Servicios.Excepciones.DatabaseUnknownErrorException();
             }
         }
@@ -231,6 +237,7 @@ namespace DAL
             }
             catch (SqlException ex)
             {
+                await _bitacora.LogError("error", "permission", ex.StackTrace);
                 throw new Servicios.Excepciones.DatabaseUnknownErrorException();
             }
         }
@@ -247,6 +254,7 @@ namespace DAL
             }
             catch (SqlException ex)
             {
+                await _bitacora.LogError("error", "permission", ex.StackTrace);
                 throw new Servicios.Excepciones.DatabaseUnknownErrorException();
             }
         }

@@ -9,12 +9,15 @@ namespace BLL
 
         private readonly Abstracciones.DAL.IEmpleado _empleadoData;
         private readonly Abstracciones.BL.IPermiso _permisoBl;
+        private readonly Abstracciones.BL.IBitacora _bitacora;
 
         public Empleado(Abstracciones.DAL.IEmpleado empleadoData = null,
-            Abstracciones.BL.IPermiso permisoBl = null)
+            Abstracciones.BL.IPermiso permisoBl = null,
+            Abstracciones.BL.IBitacora bitacora = null)
         {
             _permisoBl = permisoBl ?? new Permiso();
             _empleadoData = empleadoData ?? new DAL.EmpleadoDAL();
+            _bitacora = bitacora ?? new BLL.Bitacora();
         }
 
 
@@ -35,7 +38,10 @@ namespace BLL
             empleado.Password = pwd[0];
             empleado.Password_Salt = pwd[1];
             await _empleadoData.Create(empleado);
-            //await _bitacora.LogInformation("successful_addition", "employee", empleado.Presentacion);
+            if (Servicios.SesionAdmin.GetInstance != null)
+            {
+                await _bitacora.LogInformation("successful_addition", "employee", empleado.Presentacion);
+            }
         }
 
 
@@ -48,6 +54,7 @@ namespace BLL
                 throw new Servicios.Excepciones.OnlySysAdminsCanManageSysAdmins();
             }
             await _empleadoData.Delete(empleado);
+            await _bitacora.LogInformation("successful_deletion", "employee", empleado.Presentacion);
         }
 
         public async Task Update(Abstracciones.Entities.IEmpleado empleado1, Abstracciones.Entities.IEmpleado empleado2)
@@ -71,6 +78,7 @@ namespace BLL
                 throw new Servicios.Excepciones.OnlySysAdminsCanManageSysAdmins();
             }
             await _empleadoData.Update(empleado2);
+            await _bitacora.LogInformation("successful_update", "employee", empleado2.Presentacion);
         }
 
         public async Task CambiarIdiomaPreferido(Abstracciones.Entities.IEmpleado empleado)
@@ -95,6 +103,7 @@ namespace BLL
             Servicios.SesionAdmin.GetInstance.Empleado.Password = newpwd[0];
             Servicios.SesionAdmin.GetInstance.Empleado.Password_Salt = newpwd[1];
             await _empleadoData.CambiarClave(Servicios.SesionAdmin.GetInstance.Empleado);
+            await _bitacora.LogInformation("password_has_been_changed", "employee", empleado.Presentacion);
         }
 
         public async Task IniciarSesion(int dni, string clave)
@@ -113,6 +122,7 @@ namespace BLL
 
             Servicios.SesionAdmin.IniciarSesion(empleado);
             await ActualizarPermisosUsuario();
+            await _bitacora.LogInformation("correct_login", "employee", empleado.Presentacion);
         }
 
         public async Task ActualizarPermisosUsuario()

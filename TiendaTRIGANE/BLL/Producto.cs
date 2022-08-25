@@ -8,10 +8,11 @@ namespace BLL
     public class Producto : Abstracciones.BL.IProducto
     {
         private readonly Abstracciones.DAL.IProducto _productoData;
-
-        public Producto(Abstracciones.DAL.IProducto productoData = null)
+        private readonly Abstracciones.BL.IBitacora _bitacora;
+        public Producto(Abstracciones.DAL.IProducto productoData = null, Abstracciones.BL.IBitacora bitacora = null)
         {
             _productoData = productoData ?? new DAL.Producto();
+            _bitacora = bitacora ?? new BLL.Bitacora();
         }
 
         public async Task Create(Abstracciones.Entities.IProducto producto)
@@ -21,6 +22,7 @@ namespace BLL
             producto.CantidadExhibidores = 0;
             producto.AdvertenciaBajoStock = 0;
             await _productoData.Create(producto);
+            await _bitacora.LogInformation("successful_addition", "product", producto.Nombre);
         }
 
         public async Task Delete(Abstracciones.Entities.IProducto producto)
@@ -32,12 +34,14 @@ namespace BLL
             }
 
             await _productoData.Delete(producto);
+            await _bitacora.LogInformation("successful_deletion", "product", producto.Nombre);
         }
 
         public async Task Update(Abstracciones.Entities.IProducto producto)
         {
             Servicios.PermisosAdmin.CheckPermission("productsUPDATE");
             await _productoData.Update(producto);
+            await _bitacora.LogInformation("successful_update", "product", producto.Nombre);
         }
 
         public async Task UpdateLowStockWarning(Abstracciones.Entities.IProducto producto, int nuevaCantidad)
@@ -46,6 +50,7 @@ namespace BLL
             int cantidadAnterior = producto.AdvertenciaBajoStock;
             producto.AdvertenciaBajoStock = nuevaCantidad;
             await _productoData.Update(producto);
+            await _bitacora.LogInformation("low_stock_warning_updated", "product", $"{producto.Nombre}: {cantidadAnterior} -> {producto.AdvertenciaBajoStock}");
         }
 
         public async Task ReponerExhibidores(Abstracciones.Entities.IProducto producto, int cantidadRepuesta)
@@ -59,12 +64,17 @@ namespace BLL
                 producto.CantidadDepositos = 0;
             }
             await _productoData.Update(producto);
+            await _bitacora.LogInformation("restocked_shelves", "product", $"{producto.Nombre}: {cantidadRepuesta} ({cantidadAnterior} -> {producto.CantidadExhibidores})");
         }
 
         public async Task<IList<Abstracciones.Entities.IProducto>> GetAll()
         {
             Servicios.PermisosAdmin.CheckPermission("productsREAD");
             var productos = await _productoData.GetAll();
+            if (productos.Count == 0)
+            {
+                await _bitacora.LogWarning("there_are_no_products", "products", "");
+            }
 
             return productos;
         }
@@ -73,6 +83,10 @@ namespace BLL
         {
             Servicios.PermisosAdmin.CheckPermission("productsREAD");
             var productos = await _productoData.GetAll(categoria);
+            if (productos.Count == 0)
+            {
+                await _bitacora.LogWarning("there_are_no_products_from_this_category", "products", categoria.Nombre);
+            }
 
             return productos;
         }
@@ -81,6 +95,10 @@ namespace BLL
         {
             Servicios.PermisosAdmin.CheckPermission("productsREAD");
             var productos = await _productoData.GetAllInWarehouses();
+            if (productos.Count == 0)
+            {
+                await _bitacora.LogWarning("there_are_no_products_in_warehouses", "products", "");
+            }
 
             return productos;
         }
@@ -89,6 +107,10 @@ namespace BLL
         {
             Servicios.PermisosAdmin.CheckPermission("productsREAD");
             var productos = await _productoData.GetAllInShelves();
+            if (productos.Count == 0)
+            {
+                await _bitacora.LogWarning("there_are_no_products_in_shelves", "products", "");
+            }
 
             return productos;
         }

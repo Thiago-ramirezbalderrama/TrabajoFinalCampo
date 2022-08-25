@@ -10,11 +10,13 @@ namespace BLL
     {
         private readonly Abstracciones.DAL.IVenta _ventaData;
         private readonly Abstracciones.DAL.IProducto _productoData;
+        private readonly Abstracciones.BL.IBitacora _bitacora;
 
-        public Venta(Abstracciones.DAL.IVenta ventaData = null, Abstracciones.DAL.IProducto productoData = null)
+        public Venta(Abstracciones.DAL.IVenta ventaData = null, Abstracciones.DAL.IProducto productoData = null, Abstracciones.BL.IBitacora bitacora = null)
         {
             _ventaData = ventaData ?? new DAL.VentaDAL();
             _productoData = productoData ?? new DAL.Producto();
+            _bitacora = bitacora ?? new BLL.Bitacora();
         }
 
         public async Task Realizar(Abstracciones.Entities.IVenta venta, IList<Abstracciones.Entities.IDetalleVenta> detalles)
@@ -39,6 +41,7 @@ namespace BLL
                 await _ventaData.CreateDetalle(venta, detalle);
                 await _productoData.Update(detalle.Producto);
             }
+            await _bitacora.LogInformation("sale_has_been_made", "sales", "");
         }
 
         public async Task Cancelar(Abstracciones.Entities.IVenta venta)
@@ -52,6 +55,7 @@ namespace BLL
             venta.EmpleadoCancelacion = (BE.Empleado)Servicios.SesionAdmin.GetInstance.Empleado;
             venta.Efectuada = false;
             await _ventaData.Update(venta);
+            await _bitacora.LogInformation("sale_has_been_cancelled", "sales", "");
         }
 
         public async Task<IList<Abstracciones.Entities.IVenta>> GetAll()

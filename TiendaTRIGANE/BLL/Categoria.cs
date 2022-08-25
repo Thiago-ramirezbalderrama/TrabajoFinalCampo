@@ -9,23 +9,27 @@ namespace BLL
         private readonly Abstracciones.DAL.ICategoria _categoriasData;
         private readonly Abstracciones.DAL.IProducto _productosData;
         private readonly Abstracciones.DAL.IProveedor _proveedoresData;
+        private readonly Abstracciones.BL.IBitacora _bitacoraData;
         private readonly Abstracciones.DAL.IInformeReabastecimiento _informeReabastecimientoData;
 
         public Categoria(Abstracciones.DAL.ICategoria categoriaData = null,
             Abstracciones.DAL.IInformeReabastecimiento informeReabastecimientoData = null,
             Abstracciones.DAL.IProducto productosData = null,
-            Abstracciones.DAL.IProveedor proveedoresData = null)
+            Abstracciones.DAL.IProveedor proveedoresData = null,
+            Abstracciones.BL.IBitacora bitacora = null)
         {
             _categoriasData = categoriaData ?? new DAL.Categoria();
             _informeReabastecimientoData = informeReabastecimientoData ?? new DAL.InformeReabastecimientoDAL();
             _productosData = productosData ?? new DAL.Producto();
             _proveedoresData = proveedoresData ?? new DAL.Proveedor();
+            _bitacoraData = bitacora ?? new BLL.Bitacora();
         }
 
         public async Task Create(ICategoria categoria)
         {
             Servicios.PermisosAdmin.CheckPermission("categoriesCREATE");
             await _categoriasData.Create(categoria);
+            await _bitacoraData.LogInformation("successful_addition", "category", categoria.Nombre);
         }
 
         public async Task Delete(ICategoria categoria)
@@ -95,18 +99,15 @@ namespace BLL
             await Task.WhenAll(
                Tasks
             );
+
+            await _bitacoraData.LogInformation("successful_deletion", "category", categoria.Nombre);
         }
 
         public async Task Update(ICategoria categoria)
         {
             Servicios.PermisosAdmin.CheckPermission("categoriesUPDATE");
             await _categoriasData.Update(categoria);
-        }
-
-        public async Task UpdateDiscount(ICategoria categoria)
-        {
-            Servicios.PermisosAdmin.CheckPermission("discountsMODIFY");
-            await _categoriasData.Update(categoria);
+            await _bitacoraData.LogInformation("successful_update", "category", categoria.Nombre);
         }
 
         public async Task<IList<ICategoria>> GetAll()

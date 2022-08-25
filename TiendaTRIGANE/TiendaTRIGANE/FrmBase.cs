@@ -13,8 +13,10 @@ namespace TiendaTRIGANE
 {
     public partial class FrmBase : FormAbstracto, Abstracciones.IObserverIdioma
     {
-        public FrmBase()
+        private readonly Abstracciones.BL.IBitacora _bitacoraBL;
+        public FrmBase(Abstracciones.BL.IBitacora bitacoraBL = null)
         {
+            _bitacoraBL = bitacoraBL ?? new BLL.Bitacora();
             InitializeComponent();
         }
 
@@ -32,17 +34,19 @@ namespace TiendaTRIGANE
         public void ShowUIBasedOnPermissions()
         {
             ShowControlBasedOnPermissions(btnEmpleados, "employeesREAD");
-            //ShowControlBasedOnPermissions(seccion_RegVentas, "salesRecordREAD");
+            ShowControlBasedOnPermissions(btnRegistroVentas, "salesRecordREAD");
             ShowControlBasedOnPermissions(btnReabastecimiento, "replenishmentREAD");
             ShowControlBasedOnPermissions(btnProveedores, "suppliersREAD");
             ShowControlBasedOnPermissions(btnProductos, "productsREAD");
-            //ShowControlBasedOnPermissions(seccion_RealizarVenta, "makeSale");
-            //ShowControlBasedOnPermissions(btnReponerMostradores, "productsREPLENISH");
-            //ShowControlBasedOnPermissions(seccion_Categorias, "categoriesREAD");
+            ShowControlBasedOnPermissions(btnVenta, "makeSale");
+            ShowControlBasedOnPermissions(btnReponerMostradores, "productsREPLENISH");
+            ShowControlBasedOnPermissions(btnCategorias, "categoriesREAD");
             ShowControlBasedOnPermissions(btnPermisos, "permissions");
             ShowControlBasedOnPermissions(btnRoles, "roleREAD");
             ShowControlBasedOnPermissions(btnIdiomas, "languagesREAD");
             ShowControlBasedOnPermissions(btnTraducciones, "translationsREAD");
+            ShowControlBasedOnPermissions(button1, "systemlogsREAD");
+            //ShowControlBasedOnPermissions(btnBackup, "backupsMANAGE");
         }
 
 
@@ -75,6 +79,7 @@ namespace TiendaTRIGANE
         public void CerrarSesion()
         {
             Program.VolverAlInicioSesion = true;
+            _bitacoraBL.LogInformation("logged_out", "employee", Servicios.SesionAdmin.GetInstance.Empleado.Presentacion);
             Servicios.SesionAdmin.CerrarSesion();
             Close();
         }
@@ -144,6 +149,8 @@ namespace TiendaTRIGANE
             TranslateByTag(btnPermisos);
             TranslateByTag(btnTraducciones);
             TranslateByTag(btnIdiomas);
+            TranslateByTag(button1);
+            //TranslateByTag(btnBackup);
         }
 
         private void btnTraducciones_Click(object sender, EventArgs e)
@@ -199,6 +206,16 @@ namespace TiendaTRIGANE
         private void btnReponerMostradores_Click(object sender, EventArgs e)
         {
             openChildForm(new FrmReponerExhibidores());
+        }
+
+        private void btnBackup_Click(object sender, EventArgs e)
+        {
+            //openChildForm(new FrmBackups(this));
+        }
+
+        private void btnBitacora_Click(object sender, EventArgs e)
+        {
+            openChildForm(new FrmBitacora());
         }
     }
 }

@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BitacoraDAL.cs" />
     <Compile Include="CategoriaDAL.cs" />
     <Compile Include="ConexionDAL.cs" />
     <Compile Include="DigitosVerificadoresVerticales.cs" />

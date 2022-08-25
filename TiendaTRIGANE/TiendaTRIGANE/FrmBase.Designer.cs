@@ -35,6 +35,10 @@
             this.btnMaximizar = new System.Windows.Forms.PictureBox();
             this.btnCerrarApp = new System.Windows.Forms.PictureBox();
             this.panelBotones = new System.Windows.Forms.Panel();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.panel19 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnBitacora = new System.Windows.Forms.Button();
             this.panel16 = new System.Windows.Forms.Panel();
             this.btnCategorias = new System.Windows.Forms.Button();
             this.panel15 = new System.Windows.Forms.Panel();
@@ -52,6 +56,8 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.btnCambiarIdioma = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnTraducciones = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.btnIdiomas = new System.Windows.Forms.Button();
@@ -72,6 +78,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrarApp)).BeginInit();
             this.panelBotones.SuspendLayout();
+            this.panel18.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -144,6 +152,8 @@
             // panelBotones
             // 
             this.panelBotones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.panelBotones.Controls.Add(this.panel18);
+            this.panelBotones.Controls.Add(this.btnBitacora);
             this.panelBotones.Controls.Add(this.panel16);
             this.panelBotones.Controls.Add(this.btnCategorias);
             this.panelBotones.Controls.Add(this.panel15);
@@ -179,6 +189,57 @@
             this.panelBotones.Name = "panelBotones";
             this.panelBotones.Size = new System.Drawing.Size(221, 721);
             this.panelBotones.TabIndex = 2;
+            // 
+            // panel18
+            // 
+            this.panel18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.panel18.Controls.Add(this.panel19);
+            this.panel18.Controls.Add(this.button2);
+            this.panel18.Location = new System.Drawing.Point(2, 622);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(5, 32);
+            this.panel18.TabIndex = 31;
+            // 
+            // panel19
+            // 
+            this.panel19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.panel19.Location = new System.Drawing.Point(-2, 38);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(5, 32);
+            this.panel19.TabIndex = 15;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(1, 38);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(216, 32);
+            this.button2.TabIndex = 14;
+            this.button2.Tag = "translations";
+            this.button2.Text = "Traducciones";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // btnBitacora
+            // 
+            this.btnBitacora.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnBitacora.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBitacora.FlatAppearance.BorderSize = 0;
+            this.btnBitacora.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.btnBitacora.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBitacora.ForeColor = System.Drawing.Color.White;
+            this.btnBitacora.Location = new System.Drawing.Point(5, 622);
+            this.btnBitacora.Name = "btnBitacora";
+            this.btnBitacora.Size = new System.Drawing.Size(216, 32);
+            this.btnBitacora.TabIndex = 30;
+            this.btnBitacora.Tag = "system_logs";
+            this.btnBitacora.Text = "Bitacora";
+            this.btnBitacora.UseVisualStyleBackColor = false;
+            this.btnBitacora.Click += new System.EventHandler(this.btnBitacora_Click);
             // 
             // panel16
             // 
@@ -383,10 +444,36 @@
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.panel8.Controls.Add(this.panel17);
+            this.panel8.Controls.Add(this.button1);
             this.panel8.Location = new System.Drawing.Point(2, 587);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(5, 32);
             this.panel8.TabIndex = 13;
+            // 
+            // panel17
+            // 
+            this.panel17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.panel17.Location = new System.Drawing.Point(-2, 38);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(5, 32);
+            this.panel17.TabIndex = 15;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(1, 38);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(216, 32);
+            this.button1.TabIndex = 14;
+            this.button1.Tag = "translations";
+            this.button1.Text = "Traducciones";
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // btnTraducciones
             // 
@@ -582,6 +669,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrarApp)).EndInit();
             this.panelBotones.ResumeLayout(false);
+            this.panel18.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -625,5 +714,11 @@
         private System.Windows.Forms.Button btnReponerMostradores;
         private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.Button btnCategorias;
+        private System.Windows.Forms.Panel panel17;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel18;
+        private System.Windows.Forms.Panel panel19;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnBitacora;
     }
 }
