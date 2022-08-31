@@ -278,5 +278,19 @@ namespace TiendaTRIGANE
                 ShowError(ex);
             }
         }
+
+        private async void btnVerCambios_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count < 1)
+            {
+                SelectOneFirst();
+                return;
+            }
+
+            var producto = (Abstracciones.Entities.IProducto)dataGridView1.SelectedRows[0].DataBoundItem;
+            var cambios = await _productoBL.GetAllChanges(producto);
+            Form f = new FrmProductosCambios(cambios);
+            f.ShowDialog();
+        }
     }
 }

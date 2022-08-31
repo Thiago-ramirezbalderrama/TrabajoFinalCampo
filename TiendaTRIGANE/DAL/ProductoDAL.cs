@@ -14,12 +14,14 @@ namespace DAL
         private readonly Abstracciones.DAL.IAccesoDB _db;
         private readonly Abstracciones.DAL.IDigitosVerificadoresVerticales _dvv;
         private readonly Abstracciones.DAL.IBitacoraDAL _bitacora;
+        private Abstracciones.DAL.ICategoria _categoriaDAL;
 
-        public Producto(Abstracciones.DAL.IAccesoDB db = null, Abstracciones.DAL.IDigitosVerificadoresVerticales dvv = null, Abstracciones.DAL.IBitacoraDAL bitacora = null)
+        public Producto(Abstracciones.DAL.IAccesoDB db = null, Abstracciones.DAL.IDigitosVerificadoresVerticales dvv = null, Abstracciones.DAL.IBitacoraDAL bitacora = null, Abstracciones.DAL.ICategoria categoriaDAL = null)
         {
             _db = db ?? new ConexionDAL();
             _dvv = dvv ?? new DigitosVerificadoresVerticales();
             _bitacora = bitacora ?? new BitacoraDAL();
+            _categoriaDAL = categoriaDAL ?? new Categoria();
         }
 
         public async Task Create(IProducto producto)
@@ -30,6 +32,10 @@ namespace DAL
                 producto.ID = productos.Count > 0 ? productos.Last().ID + 1 : 1; //no es identidad para poder calcular el dvh correctamente
                 producto.EstadoActivo = true;
                 producto.DVH = Servicios.EncriptadoAdmin.CalcularDVH(producto);
+                var idReturnValue = new SqlParameter("@idProducto", SqlDbType.Int)
+                {
+                    Direction = ParameterDirection.Output
+                };
 
                 SqlParameter[] parameters = {
                     new SqlParameter("@idProducto", producto.ID),
@@ -44,6 +50,13 @@ namespace DAL
                 };
                 await _db.WriteStoredProcedure("PRODUCTO_CREATE", parameters);
                 await ActualizarDVV();
+                producto.ID = int.Parse(idReturnValue.Value.ToString());
+
+                var tipoCambio = new BE.Palabra
+                {
+                    NombrePalabra = "addition"
+                };
+                await CreateSnapshot(producto, tipoCambio);
             }
             catch (SqlException ex)
             {
@@ -54,8 +67,22 @@ namespace DAL
 
         public async Task Delete(IProducto producto)
         {
-            producto.EstadoActivo = false;
-            await Update(producto); // el metodo Update() se encarga de actualizar el digito verificador vertical
+            try
+            {
+                producto.EstadoActivo = false;
+                await Update(producto); // el metodo Update() se encarga de actualizar el digito verificador vertical
+
+                Abstracciones.Entities.Traductor.IPalabra tipoCambio = new BE.Palabra
+                {
+                    NombrePalabra = "deletion"
+                };
+                await CreateSnapshot(producto, tipoCambio);
+            }
+            catch (SqlException ex)
+            {
+                await _bitacora.LogError("error", "product", ex.StackTrace);
+                throw new Servicios.Excepciones.DatabaseUnknownErrorException();
+            }
         }
 
         public async Task Update(IProducto producto)
@@ -76,6 +103,35 @@ namespace DAL
 
                 await _db.WriteStoredProcedure("PRODUCTO_UPDATE", parameters);
                 await ActualizarDVV();
+                var tipoCambio = new BE.Palabra
+                {
+                    NombrePalabra = "updation"
+                };
+                await CreateSnapshot(producto, tipoCambio);
+            }
+            catch (SqlException ex)
+            {
+                await _bitacora.LogError("error", "product", ex.StackTrace);
+                throw new Servicios.Excepciones.DatabaseUnknownErrorException();
+            }
+        }
+
+        private async Task CreateSnapshot(IProducto producto, Abstracciones.Entities.Traductor.IPalabra tipoCambio)
+        {
+            try
+            {
+                SqlParameter[] parametersProductoCreateSnapshot =
+                {
+                    new SqlParameter("@idProducto" ,producto.ID),
+                    new SqlParameter("@Nombre", producto.Nombre),
+                    new SqlParameter("@PrecioUnitario", producto.PrecioUnitario),
+                    new SqlParameter("@idCategoria", producto.Categoria.ID),
+                    new SqlParameter("@AdvertenciaBajoStock", producto.AdvertenciaBajoStock),
+                    new SqlParameter("@DNIEmpleadoCambio", Servicios.SesionAdmin.GetInstance.Empleado.DNI),
+                    new SqlParameter("@TipoCambio", tipoCambio.NombrePalabra),
+                    new SqlParameter("@FechaCambio", DateTime.Now)
+                };
+                await _db.WriteStoredProcedure("PRODUCTO_CREATE_CHANGE", parametersProductoCreateSnapshot);
             }
             catch (SqlException ex)
             {
@@ -184,6 +240,84 @@ namespace DAL
                 await _bitacora.LogError("dvh", "product", ex.StackTrace);
                 throw new Servicios.Excepciones.DatabaseUnknownErrorException();
             }
+        }
+
+        
+        public async Task<IList<ICambioProducto>> GetAllChanges(IProducto producto)
+        {
+            var categorias = _categoriaDAL.GetAll();
+            await Task.WhenAll(
+                    categorias
+                );
+            var category = getCategoryById((List<ICategoria>)await categorias, producto);
+            try
+            {
+                IList<ICambioProducto> cambios = new List<ICambioProducto>();
+                SqlParameter[] parameters = {
+                    new SqlParameter("@idProducto", producto.ID)
+                };
+                var tabla = await _db.ReadStoredProcedure("PRODUCTO_GET_ALL_CHANGES", parameters);
+
+                foreach (DataRow registro in tabla.Rows)
+                {
+                    var Producto = new BE.Producto(category)
+                    {
+                        ID = int.Parse(registro["idProducto"].ToString()),
+                        Nombre = registro["Nombre"].ToString(),
+                        PrecioUnitario = double.Parse(registro["PrecioUnitario"].ToString()),
+                        AdvertenciaBajoStock = int.Parse(registro["AdvertenciaBajoStock"].ToString()),
+                        Categoria = category
+                    };
+
+                    var RolEmpleadoCambio = new BE.Rol
+                    {
+                        ID = int.Parse(registro["Empleado_Cambio_Rol_idRol"].ToString()),
+                        Nombre = registro["Empleado_Cambio_Rol_Nombre"].ToString(),
+                        AdministradorSistema = bool.Parse(registro["Empleado_Cambio_Rol_AdministradorDelSistema"].ToString())
+                    };
+
+                    var EmpleadoCambio = new BE.Empleado(RolEmpleadoCambio)
+                    {
+                        DNI = int.Parse(registro["Empleado_Cambio_DNI"].ToString()),
+                        Nombre = registro["Empleado_Cambio_Nombre"].ToString(),
+                        Apellido = registro["Empleado_Cambio_Apellido"].ToString(),
+                        FechaNacimiento = DateTime.Parse(registro["Empleado_Cambio_FechaNacimiento"].ToString()),
+                        Email = registro["Empleado_Cambio_Email"].ToString()
+                    };
+
+                    var historialCambios = new BE.CambioProducto
+                    {
+                        ID = int.Parse(registro["idProducto"].ToString()),
+                        EstadoProducto = Producto,
+                        EmpleadoCambio = EmpleadoCambio,
+                        TipoCambio = new BE.Palabra
+                        {
+                            NombrePalabra = registro["TipoCambio"].ToString()
+                        },
+                        FechaCambio = DateTime.Parse(registro["FechaCambio"].ToString())
+                    };
+                    cambios.Add(historialCambios);
+                }
+                return cambios;
+            }
+            catch (SqlException ex)
+            {
+                await _bitacora.LogError("error", "product", ex.StackTrace);
+                throw new Servicios.Excepciones.DatabaseUnknownErrorException();
+            }
+        }
+
+
+        private BE.Categoria getCategoryById(IList<ICategoria> listaCategorias, IProducto producto)
+        {
+            foreach(BE.Categoria category in listaCategorias)
+            {
+                if(category.ID == producto.Categoria.ID)
+                {
+                    return category;
+                }
+            }
+            return new BE.Categoria();
         }
     }
 }

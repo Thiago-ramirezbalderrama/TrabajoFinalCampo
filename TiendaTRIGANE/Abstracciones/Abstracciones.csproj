@@ -70,6 +70,7 @@
     <Compile Include="DAL\Traductor\IPalabra.cs" />
     <Compile Include="DAL\Traductor\ITraduccion.cs" />
     <Compile Include="Entities\ICambioCategoria.cs" />
+    <Compile Include="Entities\ICambioProducto.cs" />
     <Compile Include="Entities\ICategoria.cs" />
     <Compile Include="Entities\IDetalle.cs" />
     <Compile Include="Entities\IDetalleVenta.cs" />

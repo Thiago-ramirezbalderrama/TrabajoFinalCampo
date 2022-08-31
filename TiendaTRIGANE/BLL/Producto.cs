@@ -114,5 +114,11 @@ namespace BLL
 
             return productos;
         }
+
+        public async Task<IList<ICambioProducto>> GetAllChanges(IProducto producto)
+        {
+            Servicios.PermisosAdmin.CheckPermission("productsREAD");
+            return await _productoData.GetAllChanges(producto);
+        }
     }
 }

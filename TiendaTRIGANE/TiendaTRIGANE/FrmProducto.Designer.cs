@@ -42,6 +42,7 @@
             this.numAdvertencia = new System.Windows.Forms.NumericUpDown();
             this.btnModificarAdvertencia = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.btnVerCambios = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numPrecioUnitario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numAdvertencia)).BeginInit();
@@ -181,7 +182,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(12, 473);
+            this.label5.Location = new System.Drawing.Point(12, 556);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(329, 20);
             this.label5.TabIndex = 10;
@@ -191,7 +192,7 @@
             // numAdvertencia
             // 
             this.numAdvertencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numAdvertencia.Location = new System.Drawing.Point(358, 473);
+            this.numAdvertencia.Location = new System.Drawing.Point(358, 556);
             this.numAdvertencia.Maximum = new decimal(new int[] {
             9999999,
             0,
@@ -205,7 +206,7 @@
             // btnModificarAdvertencia
             // 
             this.btnModificarAdvertencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificarAdvertencia.Location = new System.Drawing.Point(510, 470);
+            this.btnModificarAdvertencia.Location = new System.Drawing.Point(510, 553);
             this.btnModificarAdvertencia.Name = "btnModificarAdvertencia";
             this.btnModificarAdvertencia.Size = new System.Drawing.Size(103, 30);
             this.btnModificarAdvertencia.TabIndex = 12;
@@ -224,11 +225,24 @@
             this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.progressBar1.TabIndex = 19;
             // 
+            // btnVerCambios
+            // 
+            this.btnVerCambios.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerCambios.Location = new System.Drawing.Point(572, 444);
+            this.btnVerCambios.Name = "btnVerCambios";
+            this.btnVerCambios.Size = new System.Drawing.Size(138, 38);
+            this.btnVerCambios.TabIndex = 20;
+            this.btnVerCambios.Tag = "view_changes";
+            this.btnVerCambios.Text = "Ver cambios";
+            this.btnVerCambios.UseVisualStyleBackColor = true;
+            this.btnVerCambios.Click += new System.EventHandler(this.btnVerCambios_Click);
+            // 
             // FrmProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 512);
+            this.ClientSize = new System.Drawing.Size(800, 595);
+            this.Controls.Add(this.btnVerCambios);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.btnModificarAdvertencia);
             this.Controls.Add(this.numAdvertencia);
@@ -271,5 +285,6 @@
         private System.Windows.Forms.NumericUpDown numAdvertencia;
         private System.Windows.Forms.Button btnModificarAdvertencia;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Button btnVerCambios;
     }
 }

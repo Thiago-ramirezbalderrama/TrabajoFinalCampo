@@ -13,5 +13,7 @@ namespace Abstracciones.DAL
         Task<IList<Entities.IProducto>> GetAllInWarehouses();
 
         Task<IList<Entities.IProducto>> GetAllInShelves();
+
+        Task<IList<Entities.ICambioProducto>> GetAllChanges(Entities.IProducto producto);
     }
 }
