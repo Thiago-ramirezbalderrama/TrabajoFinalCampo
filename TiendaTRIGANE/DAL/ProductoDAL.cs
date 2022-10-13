@@ -32,10 +32,10 @@ namespace DAL
                 producto.ID = productos.Count > 0 ? productos.Last().ID + 1 : 1; //no es identidad para poder calcular el dvh correctamente
                 producto.EstadoActivo = true;
                 producto.DVH = Servicios.EncriptadoAdmin.CalcularDVH(producto);
-                var idReturnValue = new SqlParameter("@idProducto", SqlDbType.Int)
+                /*var idReturnValue = new SqlParameter("@idProducto", SqlDbType.Int)
                 {
                     Direction = ParameterDirection.Output
-                };
+                };*/
 
                 SqlParameter[] parameters = {
                     new SqlParameter("@idProducto", producto.ID),
@@ -50,7 +50,7 @@ namespace DAL
                 };
                 await _db.WriteStoredProcedure("PRODUCTO_CREATE", parameters);
                 await ActualizarDVV();
-                producto.ID = int.Parse(idReturnValue.Value.ToString());
+//                producto.ID = int.Parse(idReturnValue.Value.ToString());
 
                 var tipoCambio = new BE.Palabra
                 {

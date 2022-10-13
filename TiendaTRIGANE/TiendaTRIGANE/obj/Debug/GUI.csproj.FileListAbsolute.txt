@@ -110,3 +110,4 @@ D:\3er año\Trabajo de Campo\TrabajoFinalCampo-main\TiendaTRIGANE\TiendaTRIGANE\
 D:\3er año\Trabajo de Campo\TrabajoFinalCampo-main\TiendaTRIGANE\TiendaTRIGANE\obj\Debug\TiendaTRIGANE.pdb
 D:\3er año\Trabajo de Campo\TrabajoFinalCampo-main\TiendaTRIGANE\TiendaTRIGANE\obj\Debug\TiendaTRIGANE.FrmBitacora.resources
 D:\3er año\Trabajo de Campo\TrabajoFinalCampo-main\TiendaTRIGANE\TiendaTRIGANE\obj\Debug\TiendaTRIGANE.FrmProductosCambios.resources
+D:\3er año\Trabajo de Campo\TrabajoFinalCampo-main\TiendaTRIGANE\TiendaTRIGANE\obj\Debug\TiendaTRIGANE.FrmBackups.resources

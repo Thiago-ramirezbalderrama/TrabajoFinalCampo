@@ -103,7 +103,7 @@ namespace BLL
             return productos;
         }
 
-        public async Task<IList<Abstracciones.Entities.IProducto>> GetAllInShelves()
+        public async Task<IList<IProducto>> GetAllInShelves()
         {
             Servicios.PermisosAdmin.CheckPermission("productsREAD");
             var productos = await _productoData.GetAllInShelves();

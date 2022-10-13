@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Backup.cs" />
     <Compile Include="CambioCategoria.cs" />
     <Compile Include="CambioProducto.cs" />
     <Compile Include="Categoria.cs" />

@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EncriptadoAdmin.cs" />
+    <Compile Include="Excepciones\BackupNotFoundException.cs" />
     <Compile Include="Excepciones\CannotDeleteSysAdminRoleException.cs" />
     <Compile Include="Excepciones\CannotDisableOnlyEnabledLanguageException.cs" />
     <Compile Include="Excepciones\ConnectionToDataBaseException.cs" />

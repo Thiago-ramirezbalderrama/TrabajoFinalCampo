@@ -86,6 +86,12 @@
     <Compile Include="FormAbstracto.Designer.cs">
       <DependentUpon>FormAbstracto.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmBackups.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBackups.Designer.cs">
+      <DependentUpon>FrmBackups.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmBase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -245,6 +251,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controles personalizados\ctrlNum.resx">
       <DependentUpon>ctrlNum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBackups.resx">
+      <DependentUpon>FrmBackups.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBase.resx">
       <DependentUpon>FrmBase.cs</DependentUpon>

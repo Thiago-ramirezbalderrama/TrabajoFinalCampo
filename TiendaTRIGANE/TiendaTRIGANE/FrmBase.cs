@@ -30,6 +30,18 @@ namespace TiendaTRIGANE
             Program.VolverAlInicioSesion = false;
         }
 
+        public void DeshabilitarSecciones()
+        {
+            panel1.Enabled = false;
+            panelBotones.Enabled = false;
+        }
+
+        public void HabilitarSecciones()
+        {
+            panel1.Enabled = true;
+            panelBotones.Enabled = true;
+        }
+
 
         public void ShowUIBasedOnPermissions()
         {
@@ -216,6 +228,11 @@ namespace TiendaTRIGANE
         private void btnBitacora_Click(object sender, EventArgs e)
         {
             openChildForm(new FrmBitacora());
+        }
+
+        private void btnBackups_Click(object sender, EventArgs e)
+        {
+            openChildForm(new FrmBackups(this));
         }
     }
 }
