@@ -100,6 +100,12 @@ namespace TiendaTRIGANE
                 comboBoxEmpleados.DataSource = empleados;
                 comboBoxEmpleados.Enabled = false;
                 checkBoxEmpleados.Checked = false;
+                dtpDesde.Enabled = false;
+                dtpHasta.Enabled = false;
+                dtpDesde.Text = DateTime.Now.AddMonths(-1).ToShortDateString();
+                dtpHasta.Text = DateTime.Now.ToShortDateString();
+                dtpHasta.MaxDate = DateTime.Now;
+                dtpDesde.MaxDate = DateTime.Now;
 
                 #endregion Cargar combobox empleados
 
@@ -135,6 +141,12 @@ namespace TiendaTRIGANE
             {
                 eventosBitacoraFiltrados = eventosBitacoraFiltrados.
                     Where(evento => evento.Severidad.Equals((Abstracciones.Entities.Traductor.IPalabra)comboBoxSeveridad.SelectedItem)).ToList();
+            }
+
+            if (checkBoxFecha.Checked)
+            {
+                eventosBitacoraFiltrados = eventosBitacoraFiltrados.
+                    Where(evento => evento.Fecha >= dtpDesde.Value && evento.Fecha <= dtpHasta.Value.AddDays(1)).ToList();
             }
 
             dataGridView1.DataSource = eventosBitacoraFiltrados;
@@ -225,6 +237,31 @@ namespace TiendaTRIGANE
 
             var evento = (Abstracciones.Entities.IEventoBitacora)dataGridView1.SelectedRows[0].DataBoundItem;
             richTextBox1.Text = evento.InfoAsociada;
+        }
+
+        private void checkBoxFecha_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxFecha.Checked)
+            {
+                dtpDesde.Enabled = true;
+                dtpHasta.Enabled = true;
+            }
+            else
+            {
+                dtpDesde.Enabled = false;
+                dtpHasta.Enabled = false;
+            }
+            AplicarFiltros();
+        }
+
+        private void dtpDesde_ValueChanged(object sender, EventArgs e)
+        {
+            AplicarFiltros();
+        }
+
+        private void dtpHasta_ValueChanged(object sender, EventArgs e)
+        {
+            AplicarFiltros();
         }
     }
 }

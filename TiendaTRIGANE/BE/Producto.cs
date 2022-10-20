@@ -5,6 +5,10 @@ namespace BE
     public class Producto : EntidadPersistente, IProducto
     {
 
+        public Producto()
+        {
+        }
+
         public Producto(ICategoria categoria)
         {
             Categoria = categoria;

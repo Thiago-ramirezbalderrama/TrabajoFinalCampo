@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
@@ -108,6 +107,30 @@ namespace DAL
                     NombrePalabra = "updation"
                 };
                 await CreateSnapshot(producto, tipoCambio);
+            }
+            catch (SqlException ex)
+            {
+                await _bitacora.LogError("error", "product", ex.StackTrace);
+                throw new Servicios.Excepciones.DatabaseUnknownErrorException();
+            }
+        }
+
+        public async Task UpdateProductFromThrowback(ICambioProducto cambioProducto)
+        {
+            try
+            {
+                var producto = new BE.Producto()
+                {
+                    AdvertenciaBajoStock = cambioProducto.EstadoProducto.AdvertenciaBajoStock,
+                    CantidadDepositos = cambioProducto.EstadoProducto.CantidadDepositos,
+                    CantidadExhibidores = cambioProducto.EstadoProducto.CantidadExhibidores,
+                    Categoria = cambioProducto.EstadoProducto.Categoria,
+                    EstadoActivo = cambioProducto.EstadoActivo,
+                    ID = cambioProducto.EstadoProducto.ID,
+                    Nombre = cambioProducto.EstadoProducto.Nombre,
+                    PrecioUnitario = cambioProducto.EstadoProducto.PrecioUnitario
+                };
+                await Update(producto);
             }
             catch (SqlException ex)
             {

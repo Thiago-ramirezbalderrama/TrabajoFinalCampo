@@ -1,21 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TiendaTRIGANE
 {
     public partial class FrmProductosCambios : FormAbstracto
     {
+        private Abstracciones.BL.IProducto _productoBL;
         public FrmProductosCambios(IList<Abstracciones.Entities.ICambioProducto> cambiosProducto)
         {
             InitializeComponent();
             CambiosProducto = cambiosProducto;
+            _productoBL = new BLL.Producto();
         }
 
         private readonly IList<Abstracciones.Entities.ICambioProducto> CambiosProducto;
@@ -25,7 +23,7 @@ namespace TiendaTRIGANE
             TranslateByTag(this);
 
             dataGridView1.AutoGenerateColumns = false;
-            dataGridView1.DataSource = CambiosProducto;
+            dataGridView1.DataSource = CambiosProducto.OrderBy(cb => cb.FechaCambio).ToList();
             dataGridView1.Columns.Clear();
             dataGridView1.Columns.Add(new DataGridViewTextBoxColumn
             {
@@ -69,7 +67,7 @@ namespace TiendaTRIGANE
             }
             if (dataGridView1.Columns[e.ColumnIndex].Tag.ToString() == "low_stock_warning_for_this_product")
             {
-                e.Value = cambio.EstadoProducto.Nombre;
+                e.Value = cambio.EstadoProducto.AdvertenciaBajoStock;
             }
             if (dataGridView1.Columns[e.ColumnIndex].Tag.ToString() == "change_type")
             {
@@ -82,6 +80,28 @@ namespace TiendaTRIGANE
             else if (dataGridView1.Columns[e.ColumnIndex].Tag.ToString() == "change_employee")
             {
                 e.Value = cambio.EmpleadoCambio.Presentacion;
+            }
+        }
+
+        private async void btnRevertirEstado_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count < 1)
+            {
+                SelectOneFirst();
+                return;
+            }
+
+            try
+            {
+                var producto = (Abstracciones.Entities.ICambioProducto)dataGridView1.SelectedRows[0].DataBoundItem;
+                producto.DVH = Servicios.EncriptadoAdmin.CalcularDVH(producto);
+                producto.EstadoActivo = true;
+                await _productoBL.UpdateProductFromThrowBack(producto);
+                SuccessfulUpdate();
+            }
+            catch (Exception ex)
+            {
+                ShowError(ex);
             }
         }
     }

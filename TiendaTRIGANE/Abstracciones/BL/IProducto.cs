@@ -20,5 +20,7 @@ namespace Abstracciones.BL
         Task<IList<Entities.IProducto>> GetAllInShelves();
 
         Task<IList<Entities.ICambioProducto>> GetAllChanges(Entities.IProducto producto);
+
+        Task UpdateProductFromThrowBack(Entities.ICambioProducto cambioProducto);
     }
 }

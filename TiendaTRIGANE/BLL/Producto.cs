@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Abstracciones.Entities;
 
@@ -12,10 +11,10 @@ namespace BLL
         public Producto(Abstracciones.DAL.IProducto productoData = null, Abstracciones.BL.IBitacora bitacora = null)
         {
             _productoData = productoData ?? new DAL.Producto();
-            _bitacora = bitacora ?? new BLL.Bitacora();
+            _bitacora = bitacora ?? new Bitacora();
         }
 
-        public async Task Create(Abstracciones.Entities.IProducto producto)
+        public async Task Create(IProducto producto)
         {
             Servicios.PermisosAdmin.CheckPermission("productsCREATE");
             producto.CantidadDepositos = 0;
@@ -25,7 +24,7 @@ namespace BLL
             await _bitacora.LogInformation("successful_addition", "product", producto.Nombre);
         }
 
-        public async Task Delete(Abstracciones.Entities.IProducto producto)
+        public async Task Delete(IProducto producto)
         {
             Servicios.PermisosAdmin.CheckPermission("productsDELETE");
             if (producto.CantidadDepositos + producto.CantidadExhibidores > 0)
@@ -37,14 +36,21 @@ namespace BLL
             await _bitacora.LogInformation("successful_deletion", "product", producto.Nombre);
         }
 
-        public async Task Update(Abstracciones.Entities.IProducto producto)
+        public async Task Update(IProducto producto)
         {
             Servicios.PermisosAdmin.CheckPermission("productsUPDATE");
             await _productoData.Update(producto);
             await _bitacora.LogInformation("successful_update", "product", producto.Nombre);
         }
 
-        public async Task UpdateLowStockWarning(Abstracciones.Entities.IProducto producto, int nuevaCantidad)
+        public async Task UpdateProductFromThrowBack(ICambioProducto cambioProducto)
+        {
+            Servicios.PermisosAdmin.CheckPermission("productsUPDATE");
+            await _productoData.UpdateProductFromThrowback(cambioProducto);
+            //await _bitacora.LogInformation("throwback", "product", cambioProducto.EstadoProducto.Nombre);
+        }
+
+        public async Task UpdateLowStockWarning(IProducto producto, int nuevaCantidad)
         {
             Servicios.PermisosAdmin.CheckPermission("productsUPDATE");
             int cantidadAnterior = producto.AdvertenciaBajoStock;
@@ -53,7 +59,7 @@ namespace BLL
             await _bitacora.LogInformation("low_stock_warning_updated", "product", $"{producto.Nombre}: {cantidadAnterior} -> {producto.AdvertenciaBajoStock}");
         }
 
-        public async Task ReponerExhibidores(Abstracciones.Entities.IProducto producto, int cantidadRepuesta)
+        public async Task ReponerExhibidores(IProducto producto, int cantidadRepuesta)
         {
             Servicios.PermisosAdmin.CheckPermission("productsREPLENISH");
             int cantidadAnterior = producto.CantidadExhibidores;

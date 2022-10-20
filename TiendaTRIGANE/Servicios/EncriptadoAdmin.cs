@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Servicios
 {
@@ -15,7 +14,7 @@ namespace Servicios
         private const int ITERATIONS = 20000;
         private const string DVH_SALT = "hfjdasklhgwuerighbrwe";
         private const string DVV_SALT = "hrewiorweyuiorweyuioo";
-        private static bool bIntegrity = false;
+        private static bool bIntegrity = true;
 
 
         public static bool checkIntegrity
