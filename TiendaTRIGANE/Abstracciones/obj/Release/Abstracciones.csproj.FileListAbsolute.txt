@@ -1,0 +1,5 @@
+D:\3er año\Trabajo de Campo\TrabajoFinalCampo-main\TiendaTRIGANE\Abstracciones\bin\Release\Abstracciones.dll
+D:\3er año\Trabajo de Campo\TrabajoFinalCampo-main\TiendaTRIGANE\Abstracciones\bin\Release\Abstracciones.pdb
+D:\3er año\Trabajo de Campo\TrabajoFinalCampo-main\TiendaTRIGANE\Abstracciones\obj\Release\Abstracciones.csproj.CoreCompileInputs.cache
+D:\3er año\Trabajo de Campo\TrabajoFinalCampo-main\TiendaTRIGANE\Abstracciones\obj\Release\Abstracciones.dll
+D:\3er año\Trabajo de Campo\TrabajoFinalCampo-main\TiendaTRIGANE\Abstracciones\obj\Release\Abstracciones.pdb

@@ -119,9 +119,6 @@ namespace Servicios
             }
         }
 
-
-
-
         public static bool VerificarDVV(IList<Abstracciones.Entities.IEntidadPersistente> objs, byte[] dvvObtenido)
         {
             if (!checkIntegrity) return true;
@@ -129,7 +126,5 @@ namespace Servicios
             var resultadoComparacion = dvRecalculado.SequenceEqual(dvvObtenido);
             return resultadoComparacion;
         }
-
-
     }
 }

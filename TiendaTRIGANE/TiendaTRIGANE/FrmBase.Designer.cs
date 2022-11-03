@@ -35,9 +35,13 @@
             this.btnMaximizar = new System.Windows.Forms.PictureBox();
             this.btnCerrarApp = new System.Windows.Forms.PictureBox();
             this.panelBotones = new System.Windows.Forms.Panel();
+            this.panel20 = new System.Windows.Forms.Panel();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
             this.panel18 = new System.Windows.Forms.Panel();
             this.panel19 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
+            this.btnBackups = new System.Windows.Forms.Button();
             this.btnBitacora = new System.Windows.Forms.Button();
             this.panel16 = new System.Windows.Forms.Panel();
             this.btnCategorias = new System.Windows.Forms.Button();
@@ -72,19 +76,15 @@
             this.btnCambiarContraseña = new System.Windows.Forms.Button();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.panelChildForm = new System.Windows.Forms.Panel();
-            this.panel20 = new System.Windows.Forms.Panel();
-            this.panel21 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.btnBackups = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnRestaurar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrarApp)).BeginInit();
             this.panelBotones.SuspendLayout();
+            this.panel20.SuspendLayout();
             this.panel18.SuspendLayout();
             this.panel8.SuspendLayout();
-            this.panel20.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -197,6 +197,40 @@
             this.panelBotones.Size = new System.Drawing.Size(221, 721);
             this.panelBotones.TabIndex = 2;
             // 
+            // panel20
+            // 
+            this.panel20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.panel20.Controls.Add(this.panel21);
+            this.panel20.Controls.Add(this.button3);
+            this.panel20.Location = new System.Drawing.Point(2, 622);
+            this.panel20.Name = "panel20";
+            this.panel20.Size = new System.Drawing.Size(5, 32);
+            this.panel20.TabIndex = 33;
+            // 
+            // panel21
+            // 
+            this.panel21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.panel21.Location = new System.Drawing.Point(-2, 38);
+            this.panel21.Name = "panel21";
+            this.panel21.Size = new System.Drawing.Size(5, 32);
+            this.panel21.TabIndex = 15;
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(1, 38);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(216, 32);
+            this.button3.TabIndex = 14;
+            this.button3.Tag = "translations";
+            this.button3.Text = "Traducciones";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
             // panel18
             // 
             this.panel18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
@@ -230,6 +264,23 @@
             this.button2.Tag = "translations";
             this.button2.Text = "Traducciones";
             this.button2.UseVisualStyleBackColor = false;
+            // 
+            // btnBackups
+            // 
+            this.btnBackups.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
+            this.btnBackups.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBackups.FlatAppearance.BorderSize = 0;
+            this.btnBackups.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
+            this.btnBackups.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBackups.ForeColor = System.Drawing.Color.White;
+            this.btnBackups.Location = new System.Drawing.Point(5, 622);
+            this.btnBackups.Name = "btnBackups";
+            this.btnBackups.Size = new System.Drawing.Size(216, 32);
+            this.btnBackups.TabIndex = 32;
+            this.btnBackups.Tag = "backups";
+            this.btnBackups.Text = "Backups";
+            this.btnBackups.UseVisualStyleBackColor = false;
+            this.btnBackups.Click += new System.EventHandler(this.btnBackups_Click);
             // 
             // btnBitacora
             // 
@@ -658,57 +709,6 @@
             this.panelChildForm.Size = new System.Drawing.Size(835, 721);
             this.panelChildForm.TabIndex = 3;
             // 
-            // panel20
-            // 
-            this.panel20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.panel20.Controls.Add(this.panel21);
-            this.panel20.Controls.Add(this.button3);
-            this.panel20.Location = new System.Drawing.Point(2, 622);
-            this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(5, 32);
-            this.panel20.TabIndex = 33;
-            // 
-            // panel21
-            // 
-            this.panel21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.panel21.Location = new System.Drawing.Point(-2, 38);
-            this.panel21.Name = "panel21";
-            this.panel21.Size = new System.Drawing.Size(5, 32);
-            this.panel21.TabIndex = 15;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(1, 38);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(216, 32);
-            this.button3.TabIndex = 14;
-            this.button3.Tag = "translations";
-            this.button3.Text = "Traducciones";
-            this.button3.UseVisualStyleBackColor = false;
-            // 
-            // btnBackups
-            // 
-            this.btnBackups.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(40)))));
-            this.btnBackups.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBackups.FlatAppearance.BorderSize = 0;
-            this.btnBackups.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.btnBackups.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBackups.ForeColor = System.Drawing.Color.White;
-            this.btnBackups.Location = new System.Drawing.Point(5, 622);
-            this.btnBackups.Name = "btnBackups";
-            this.btnBackups.Size = new System.Drawing.Size(216, 32);
-            this.btnBackups.TabIndex = 32;
-            this.btnBackups.Tag = "backups";
-            this.btnBackups.Text = "Backups";
-            this.btnBackups.UseVisualStyleBackColor = false;
-            this.btnBackups.Click += new System.EventHandler(this.btnBackups_Click);
-            // 
             // FrmBase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -727,9 +727,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrarApp)).EndInit();
             this.panelBotones.ResumeLayout(false);
+            this.panel20.ResumeLayout(false);
             this.panel18.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
-            this.panel20.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

@@ -5,12 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace DAL
 {
     internal class ConexionDAL : Abstracciones.DAL.IAccesoDB
-    {
-        public string conexionString { get => @"Data Source=.;Initial Catalog=TiendaTRIGANE;Integrated Security=True"; }
+    { 
+        public string conexionString { get => ConfigurationManager.ConnectionStrings["String_conexion"].ToString(); }
 
 
         public async Task<int> WriteStoredProcedure(string st, SqlParameter[] parameters)

@@ -45,7 +45,6 @@
     <Compile Include="BL\IBitacora.cs" />
     <Compile Include="BL\ICategoria.cs" />
     <Compile Include="BL\IEmpleado.cs" />
-    <Compile Include="BL\IFamilia.cs" />
     <Compile Include="BL\IInformeReabastecimiento.cs" />
     <Compile Include="BL\IPermiso.cs" />
     <Compile Include="BL\IProducto.cs" />
@@ -61,7 +60,6 @@
     <Compile Include="DAL\ICategoria.cs" />
     <Compile Include="DAL\IDigitosVerificadoresVerticales.cs" />
     <Compile Include="DAL\IEmpleado.cs" />
-    <Compile Include="DAL\IFamilia.cs" />
     <Compile Include="DAL\IInformeReabastecimiento.cs" />
     <Compile Include="DAL\IPermiso.cs" />
     <Compile Include="DAL\IProducto.cs" />
@@ -78,7 +76,6 @@
     <Compile Include="Entities\IDetalle.cs" />
     <Compile Include="Entities\IDetalleVenta.cs" />
     <Compile Include="Entities\IEventoBitacora.cs" />
-    <Compile Include="Entities\IFamilia.cs" />
     <Compile Include="Entities\IInformeReabastecimiento.cs" />
     <Compile Include="Entities\IPermiso.cs" />
     <Compile Include="Entities\IProducto.cs" />

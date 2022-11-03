@@ -47,7 +47,6 @@
     <Compile Include="Empleado.cs" />
     <Compile Include="Excepciones\TheresStillEmployeesWithThisRoleException.cs" />
     <Compile Include="Excepciones\TheresStillProductsLeftToSellException.cs" />
-    <Compile Include="Familia.cs" />
     <Compile Include="InformeReabastecimiento.cs" />
     <Compile Include="Permiso.cs" />
     <Compile Include="Producto.cs" />
